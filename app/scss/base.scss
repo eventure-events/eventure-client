@@ -1,0 +1,7 @@
+@import "./vendor/_normalize/";
+@include normalize();
+
+@import "./vendor/bootstrap/stylesheets/_bootstrap.scss";
+@import "./vendor/font-awesome/scss/font-awesome.scss";
+
+@import "./styles/_main.scss";
