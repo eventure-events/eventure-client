@@ -4,9 +4,10 @@
   "description": "eventure-client",
   "main": "./app/entry.js",
   "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "./node_modules/webpack/bin/webpack.js",
     "watch": "webpack-dashboard -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "lint": "./node_modules/.bin/eslint app",
-    "test": "NODE_ENV=test ./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start --browsers PhantomJS --single-run"
   },
   "keywords": [],
   "author": "Jeff Gebhardt <jeff@gebbey.com>",
@@ -40,6 +41,7 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "webpack-dashboard": "^0.1.8",

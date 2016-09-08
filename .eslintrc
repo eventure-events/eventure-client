@@ -26,7 +26,8 @@
   "env": {
     "es6": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "jasmine": true
   },
   "globals": {
     "__API_URL__": false,
