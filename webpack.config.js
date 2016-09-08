@@ -27,7 +27,7 @@ module.exports = {
     return [autoprefixer];
   },
   sassLoader: {
-    includePaths: `${__dirname}/app/scss/main`,
+    includePaths: `${__dirname}/app/style/scss`,
   },
   module: {
     loaders: [
