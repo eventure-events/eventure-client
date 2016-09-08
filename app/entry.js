@@ -5,9 +5,13 @@ require('./scss/base.scss');
 
 const angular = require('angular');
 
-let eventureClient = angular.module('lorApp', [require('angular-route')]);
+let eventureApp = angular.module('lorApp', [require('angular-route')]);
 
-eventureClient.config(['$routeProvider', function($route) {
+require('./services')(eventureApp);
+require('./controllers')(eventureApp);
+require('./components')(eventureApp);
+
+eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
       templateUrl: '/app/html/index.html',
