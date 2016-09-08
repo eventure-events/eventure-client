@@ -1,7 +1,7 @@
 'use strict';
 
 require('!!file?name=[name].[ext]!./html/index.html');
-require('./scss/base.scss');
+require('./style/scss/main.scss');
 
 const angular = require('angular');
 
