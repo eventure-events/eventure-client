@@ -5,7 +5,7 @@ require('./scss/base.scss');
 
 const angular = require('angular');
 
-let eventureApp = angular.module('lorApp', [require('angular-route')]);
+let eventureApp = angular.module('eventureApp', [require('angular-route')]);
 
 require('./services')(eventureApp);
 require('./controllers')(eventureApp);
