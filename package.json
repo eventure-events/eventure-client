@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "./node_modules/webpack/bin/webpack.js",
-    "watch": "webpack-dashboard -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
+    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "test": "./node_modules/karma/bin/karma start --browsers PhantomJS --single-run"
   },
   "keywords": [],

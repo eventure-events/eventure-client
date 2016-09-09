@@ -5,14 +5,14 @@ const ExtractText = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const API_URL = JSON.stringify(process.env.API_URL || 'http://localhost:3000');
-const DashboardPlugin = require('webpack-dashboard/plugin');
+// const DashboardPlugin = require('webpack-dashboard');
 
 let pluginsArray = [
   new ExtractText('bundle.css'),
   new webpack.DefinePlugin({
     __API_URL__: API_URL,
   }),
-  new DashboardPlugin(),
+  // new DashboardPlugin(),
 ];
 
 module.exports = {
