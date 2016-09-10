@@ -1,23 +1,39 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('EventController', ['$http', '$q', '$log', EventController]);
+  app.controller('EventController', ['$http', '$q', '$log', 'data', 'eventRequest', EventController]);
 };
 
-function EventController($http, $q, $log) {
+function EventController($http, $q, $log, data, eventRequest) {
   console.log('eventcontroller');
-  let baseUrl = `${__API_URL__}/api/event`;
+  this.events = data.events;
 
-  this.create = function(newEvent) {
-    return $q(function(resolve, reject) {
-      $http.post(baseUrl, newEvent)
-        .then((res) => {
-          $log.log('success! event created', res.data);
-          resolve(res.data);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+  this.createEvent = function(ev) {
+    eventRequest.createEvent(ev)
+      .then((data) => {
+        this.events.push(data);
+      });
+  };
+
+  this.allEvents = function() {
+    eventRequest.allEvents()
+      .then((all) => {
+        this.events = all;
+      });
+  };
+
+  this.searchEvent = function(ev) {
+    eventRequest.searchEvent(ev);
+  };
+
+  this.updateEvent = function(ev) {
+    eventRequest.updateEvent(ev);
+  };
+
+  this.deleteEvent = function(ev) {
+    eventRequest.deleteEvent(ev)
+      .then((data) => {
+        this.events.splice(this.events.indexOf(data, 1));
+      });
   };
 }
