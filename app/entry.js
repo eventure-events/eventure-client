@@ -14,7 +14,10 @@ require('./components')(eventureApp);
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      templateUrl: '/app/html/index.html',
+      templateUrl: './app/html/home.html',
+    })
+    .when('/event', {
+      templateUrl: './app/html/event.html',
     })
     .otherwise({
       redirectTo: '/',
