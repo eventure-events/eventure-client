@@ -5,4 +5,5 @@ module.exports = function(app) {
   require('./display')(app);
   require('./profile')(app);
   require('./nav')(app);
+  require('./map')(app);
 };
