@@ -16,6 +16,9 @@ eventureApp.config(['$routeProvider', function($route) {
     .when('/', {
       templateUrl: './app/html/home.html',
     })
+    .when('/profile', {
+      templateUrl: './app/html/profile.html',
+    })
     .when('/event', {
       templateUrl: './app/html/event.html',
     })
