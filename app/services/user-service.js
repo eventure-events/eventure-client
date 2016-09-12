@@ -21,7 +21,7 @@ function userService($http, $log, $q, $window, dataService) {
       })
         .then((res) => {
           $log.log(res.data);
-          // dataService.user = res.data;
+          resolve(res.data);
         }).catch((err) => {
           $log.log(err);
           reject(err);
@@ -30,7 +30,18 @@ function userService($http, $log, $q, $window, dataService) {
   };
 
   service.setToken = function(token) {
+    $log.log('Setting LS ', token);
     $window.localStorage.token = token;
+  };
+
+  service.setUser = function(user) {
+    $log.log('Setting user ', user);
+    dataService.user = user;
+  };
+
+  service.userLogOut = function() {
+    dataService.user = {};
+    $window.localStorage.token = '';
   };
 
   return service;
