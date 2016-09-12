@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('DisplayController', ['data', 'eventRequest', DisplayController]);
+  app.controller('DisplayController', ['dataService', 'eventService', DisplayController]);
 };
 
-function DisplayController(data, eventRequest) {
+function DisplayController(dataService, eventService) {
   console.log('display controller');
 }

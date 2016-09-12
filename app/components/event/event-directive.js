@@ -1,12 +1,8 @@
 'use strict';
 
-module.exports = exports = (app) => {
-  app.directive('eeEventDirective', function() {
-    return {
-      restrict: 'EAC',
-      template: require('./event-template.html'),
-      controller: 'EventController',
-      controllerAs: 'eventCtrl',
-    };
+module.exports = function(app) {
+  app.component('evEventComponent', {
+    controller: 'EventController',
+    template: require('./event-template.html'),
   });
 };
