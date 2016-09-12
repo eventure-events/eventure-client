@@ -7,12 +7,21 @@ module.exports = exports = (app) => {
 function NavController($log, userService) {
   $log.log('Entering display controller');
 
+  this.isLoggedin;
+
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
-      .then((token) => {
-        $log.log(token);
-        userService.setToken(token);
+      .then((userInfo) => {
+        $log.log(userInfo);
+        this.isLoggedIn = true;
+        userService.setToken(userInfo.token.token);
+        userService.setUser(userInfo.user);
       });
+  };
+
+  this.userLogOut = function() {
+    userService.userLogOut();
+    this.isLoggedIn = false;
   };
 
 }
