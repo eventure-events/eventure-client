@@ -3,6 +3,8 @@
 @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
+@import "./header.scss";
+
 // import order
 // utils, vendor, base, layout, components, pages, themes
 
@@ -11,3 +13,11 @@
   width: 30%;
   height: 100%;
 }
+
+<<<<<<< HEAD
+.angular-google-map-container { height: 400px; }
+=======
+body {
+  padding-top: 70px;
+}
+>>>>>>> profile-page
