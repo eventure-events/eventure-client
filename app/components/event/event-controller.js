@@ -1,37 +1,41 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('EventController', ['$http', '$q', '$log', 'data', 'eventRequest', EventController]);
+  app.controller('EventController', ['$http', '$q', '$log', 'dataService', 'eventService', EventController]);
 };
 
-function EventController($http, $q, $log, data, eventRequest) {
+function EventController($http, $q, $log, dataService, eventService) {
   console.log('eventcontroller');
-  this.events = data.events;
+  this.events = dataService.events;
 
-  this.createEvent = function(ev) {
-    eventRequest.createEvent(ev)
-      .then((data) => {
-        this.events.push(data);
+  this.createEvent = function(eventInfo) {
+    eventService.createEvent(eventInfo)
+      .then((event) => {
+        this.events.push(event);
       });
   };
 
+  // do not do this if we have a data service
+  // will most likely remove
   this.allEvents = function() {
-    eventRequest.allEvents()
+    eventService.allEvents()
       .then((all) => {
         this.events = all;
       });
   };
 
+  // this is not needed, search returns a promise resolving with a result, this does nothing.
   this.searchEvent = function(ev) {
-    eventRequest.searchEvent(ev);
+    eventService.searchEvent(ev);
   };
 
   this.updateEvent = function(ev) {
-    eventRequest.updateEvent(ev);
+    eventService.updateEvent(ev);
   };
 
+  // handle this on data service side, not here
   this.deleteEvent = function(ev) {
-    eventRequest.deleteEvent(ev)
+    eventService.deleteEvent(ev)
       .then((data) => {
         this.events.splice(this.events.indexOf(data, 1));
       });
