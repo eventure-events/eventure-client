@@ -10,7 +10,7 @@ module.exports = exports = (app) => {
 function dataService($log) {
   const service = {};
   service.events = [];
-  service.users = [];
+  service.user = {};
   $log.log('Info from factory :: ', service.events);
 
   // data handling operation goes here, to be called in event service or controllers
