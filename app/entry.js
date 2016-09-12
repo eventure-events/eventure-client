@@ -11,12 +11,6 @@ require('./services')(eventureApp);
 require('./controllers')(eventureApp);
 require('./components')(eventureApp);
 
-angular.module('myApplicationModule', ['uiGmapgoogle-maps']).config(
-    ['$scope', function($scope) {
-      $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-    }]
-);
-
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
@@ -27,6 +21,9 @@ eventureApp.config(['$routeProvider', function($route) {
     })
     .when('/event', {
       templateUrl: './app/html/event.html',
+    })
+    .when('/map', {
+      templateUrl: './app/html/map.html',
     })
     .otherwise({
       redirectTo: '/',
