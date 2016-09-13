@@ -8,7 +8,6 @@ const angular = require('angular');
 let eventureApp = angular.module('eventureApp', [require('angular-route')]);
 
 require('./services')(eventureApp);
-require('./controllers')(eventureApp);
 require('./components')(eventureApp);
 
 eventureApp.config(['$routeProvider', function($route) {
@@ -21,6 +20,12 @@ eventureApp.config(['$routeProvider', function($route) {
     })
     .when('/event', {
       templateUrl: './app/html/event.html',
+    })
+    .when('/map', {
+      templateUrl: './app/html/map.html',
+    })
+    .when('/signup', {
+      templateUrl: './app/html/signup.html',
     })
     .otherwise({
       redirectTo: '/',
