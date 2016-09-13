@@ -10,6 +10,7 @@ module.exports = exports = (app) => {
 function dataService($log) {
   const service = {};
   service.events = [];
+  service.yourEvents = [];
   service.userInfo = {};
   service.userInfo.user = {};
   service.userInfo.isLoggedIn = false;
