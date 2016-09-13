@@ -41,6 +41,7 @@ function userService($http, $log, $q, $window, dataService) {
 
   service.userLogOut = function() {
     dataService.user = {};
+    $log.log('logging out', dataService.user);
     $window.localStorage.token = '';
   };
 
