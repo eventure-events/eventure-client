@@ -1,11 +1,13 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('NavController', ['$log', 'userService', NavController]);
+  app.controller('NavController', ['$log', 'userService', 'dataService', NavController]);
 };
 
-function NavController($log, userService) {
+function NavController($log, userService, dataService) {
   $log.log('Entering display controller');
+
+  this.user = dataService.user;
 
   this.isLoggedin;
 
