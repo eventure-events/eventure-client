@@ -11,7 +11,7 @@ function ListController($log, $window, dataService, eventService, userService) {
 
     this.token = userService.getToken();
     this.listEvents = function() {
-      $log.log('this.events: ', this.events);
+      console.log('this.events: ', this.events);
     };
   });
 }
