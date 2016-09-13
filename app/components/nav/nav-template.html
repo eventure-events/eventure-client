@@ -1,11 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="#/"> Eventure </a></li>
-      <li role="presentation"><a href="#/profile"> Profile </a></li>
-      <li role="presentation" ng-if="!$ctrl.isLoggedIn"><a href="#/signup"> Sign-up </a></li>
+      <li role="presentation">
+        <a href="#/"> <img src="../../resources/logo-full.png" /> </a>
+      </li>
+      <li role="presentation" ng-if="isLoggedIn"><a href="#/profile"> Profile </a></li>
+      <li role="presentation" ng-if="!isLoggedIn"><a href="#/signup"> Sign-up </a></li>
 
-      <form class="navbar-form navbar-right" ng-if="!$ctrl.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
+      <form class="navbar-form navbar-right" ng-if="!isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
         <div class="form-group">
           <input type="text" class="form-control" ng-model="$ctrl.user.username" placeholder="Username...">
           <input type="password" class="form-control" ng-model="$ctrl.user.password" placeholder="Password...">
@@ -13,8 +15,8 @@
         <button type="submit" class="btn btn-default"> Sign-in </button>
       </form>
 
-      <button type="button" ng-if="$ctrl.isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right"> Log-out </button>
-      <p class="navbar-text" ng-if="$ctrl.isLoggedIn"> Signed in as {{ $ctrl.currentUser.name }} </p>
+      <button type="button" ng-if="isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right"> Log-out </button>
+      <p class="navbar-text" ng-if="isLoggedIn"> Signed in as {{ $ctrl.currentUser.name }} </p>
 
     </ul>
   </div>

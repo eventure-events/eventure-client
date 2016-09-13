@@ -1,27 +1,29 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('NavController', ['$log', 'userService', 'dataService', NavController]);
+  app.controller('NavController', ['$log', 'userService', 'dataService', '$scope', '$location', NavController]);
 };
 
-function NavController($log, userService, dataService) {
+function NavController($log, userService, dataService, $scope, $location) {
 
-  this.isLoggedin;
+  $scope.isLoggedin;
 
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
       .then((userInfo) => {
-        $log.log(userInfo);
-        this.isLoggedIn = true;
+        $log.log('NavController.userLogIn userInfo: ', userInfo);
+        $scope.isLoggedIn = true;
         userService.setToken(userInfo.token.token);
         userService.setUser(userInfo.user);
         this.currentUser = dataService.user;
       });
+    $location.path('/profile');
   };
 
   this.userLogOut = function() {
     userService.userLogOut();
-    this.isLoggedIn = false;
+    $scope.isLoggedIn = false;
+    $location.path('/');
   };
 
 }
