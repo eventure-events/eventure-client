@@ -1,39 +1,51 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('EventController', ['$http', '$q', '$log', 'data', 'eventRequest', EventController]);
+  app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', 'userService', EventController]);
 };
 
-function EventController($http, $q, $log, data, eventRequest) {
-  console.log('eventcontroller');
-  this.events = data.events;
+function EventController($log, $window, dataService, eventService, userService) {
+  this.events = dataService.events;
 
-  this.createEvent = function(ev) {
-    eventRequest.createEvent(ev)
-      .then((data) => {
-        this.events.push(data);
+
+  this.createEvent = function(eventInfo) {
+    $log.log('Creating event', eventInfo);
+    this.token = userService.getToken();
+    $log.log(this.token);
+    this.headers = {
+      authorization : 'Bearer ' + this.token,
+    };
+
+    eventService.createEvent(eventInfo, this.headers)
+      .then((event) => {
+        this.events.push(event);
+        $window.location.href = '#/profile';
       });
   };
 
-  this.allEvents = function() {
-    eventRequest.allEvents()
-      .then((all) => {
-        this.events = all;
-      });
-  };
+  // do not do this if we have a data service
+  // will most likely remove
+  // this.allEvents = function() {
+  //   eventService.allEvents()
+  //     .then((all) => {
+  //       this.events = all;
+  //     });
+  // };
 
-  this.searchEvent = function(ev) {
-    eventRequest.searchEvent(ev);
-  };
+  // this is not needed, search returns a promise resolving with a result, this does nothing.
+  // this.searchEvent = function(ev) {
+  //   eventService.searchEvent(ev);
+  // };
+  //
+  // this.updateEvent = function(ev) {
+  //   eventService.updateEvent(ev);
+  // };
 
-  this.updateEvent = function(ev) {
-    eventRequest.updateEvent(ev);
-  };
-
-  this.deleteEvent = function(ev) {
-    eventRequest.deleteEvent(ev)
-      .then((data) => {
-        this.events.splice(this.events.indexOf(data, 1));
-      });
-  };
+  // handle this on data service side, not here
+  // this.deleteEvent = function(ev) {
+  //   eventService.deleteEvent(ev)
+  //     .then((data) => {
+  //       this.events.splice(this.events.indexOf(data, 1));
+  //     });
+  // };
 }
