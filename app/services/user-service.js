@@ -34,6 +34,10 @@ function userService($http, $log, $q, $window, dataService) {
     $window.localStorage.token = token;
   };
 
+  service.getToken = function() {
+    return $window.localStorage.token;
+  };
+
   service.setUser = function(user) {
     $log.log('Setting user ', user);
     dataService.user = user;

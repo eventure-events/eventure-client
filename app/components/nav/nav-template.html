@@ -14,7 +14,7 @@
       </form>
 
       <button type="button" ng-if="$ctrl.isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right"> Log-out </button>
-      <p class="navbar-text navbar-right" ng-if="$ctr.isLoggedIn"> Signed in as {{ $ctrl.user.name }} </p>
+      <p class="navbar-text" ng-if="$ctrl.isLoggedIn"> Signed in as {{ $ctrl.currentUser.name }} </p>
 
     </ul>
   </div>
