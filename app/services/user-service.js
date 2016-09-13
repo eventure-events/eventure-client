@@ -9,6 +9,8 @@ function userService($http, $log, $q, $window, dataService) {
 
   const service = {};
 
+  service.isLoggedIn = false;
+
   const baseUrl = `${__API_URL__}/api/`;
 
   service.userSignIn = function(userData) {
