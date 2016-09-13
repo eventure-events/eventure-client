@@ -6,17 +6,14 @@ module.exports = exports = (app) => {
 
 function NavController($log, userService, dataService, $location) {
 
-  this.isLoggedIn = userService.isLoggedIn;
+  this.userInfo = dataService.userInfo;
 
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
       .then((userInfo) => {
-        $log.log('NavController.userLogIn userInfo: ', userInfo);
+        userService.setUser(userInfo.user); // ser user in data service, which in turn sets it here.
         userService.isLoggedIn = true;
-        $log.log('Is logged in ', this.isLoggedIn);
-        $log.log('userservice Is logged in ', userService.isLoggedIn);
-        userService.setToken(userInfo.token.token);
-        userService.setUser(userInfo.user);
+        userService.setToken(userInfo.token);
         $location.path('/profile');
       });
   };
@@ -33,7 +30,6 @@ function NavController($log, userService, dataService, $location) {
 
   this.userLogOut = function() {
     userService.userLogOut();
-    userService.isLoggedIn = false;
     $location.path('/');
   };
 
