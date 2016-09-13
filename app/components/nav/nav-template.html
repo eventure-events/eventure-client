@@ -4,10 +4,13 @@
       <li role="presentation">
         <a href="#/"> <img src="../../resources/logo-full.png" /> </a>
       </li>
-      <li role="presentation" ng-if="isLoggedIn"><a href="#/profile"> Profile </a></li>
-      <li role="presentation" ng-if="!isLoggedIn"><a href="#/signup"> Sign-up </a></li>
-
-      <form class="navbar-form navbar-right" ng-if="!isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
+      <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/profile"> Profile </a></li>
+      <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn"><a href="#/signup"> Sign-up </a></li>
+      <p>
+        user Info: {{$ctrl.userInfo}}
+        Is logged in? {{$ctrl.userInfo.isLoggedIn}}
+      </p>
+      <form class="navbar-form navbar-right" ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
         <div class="form-group">
           <input type="text" class="form-control" ng-model="$ctrl.user.username" placeholder="Username...">
           <input type="password" class="form-control" ng-model="$ctrl.user.password" placeholder="Password...">
@@ -15,8 +18,8 @@
         <button type="submit" class="btn btn-default"> Sign-in </button>
       </form>
 
-      <button type="button" ng-if="isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right"> Log-out </button>
-      <p class="navbar-text" ng-if="isLoggedIn"> Signed in as {{ $ctrl.currentUser.name }} </p>
+      <button type="button" ng-if="$ctrl.userInfo.isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right"> Log-out </button>
+      <p class="navbar-text" ng-if="$ctrl.userInfo.isLoggedIn"> Signed in as {{ $ctrl.userInfo.user.name }} </p>
 
     </ul>
   </div>

@@ -24,6 +24,9 @@ eventureApp.config(['$routeProvider', function($route) {
     .when('/map', {
       templateUrl: './app/html/map.html',
     })
+    .when('/list', {
+      templateUrl: './app/html/list.html',
+    })
     .when('/signup', {
       templateUrl: './app/html/signup.html',
     })

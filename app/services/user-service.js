@@ -46,7 +46,7 @@ function userService($http, $log, $q, $window, dataService) {
 
   service.setToken = function(token) {
     $log.log('Setting LS ', token);
-    $window.localStorage.token = token;
+    $window.localStorage.token = token.token;
   };
 
   service.getToken = function() {
@@ -55,15 +55,16 @@ function userService($http, $log, $q, $window, dataService) {
 
   service.setUser = function(user) {
     $log.log('Setting user ', user);
-    dataService.user = user;
+    dataService.userInfo.user = user;
+    dataService.userInfo.isLoggedIn = true;
   };
 
   service.userLogOut = function() {
-    dataService.user = {};
-    $log.log('logging out', dataService.user);
+    dataService.userInfo.user = {};
+    dataService.userInfo.isLoggedIn = false;
+    $log.log('logging out', dataService.userInfo);
     $window.localStorage.token = '';
   };
 
   return service;
-
 }
