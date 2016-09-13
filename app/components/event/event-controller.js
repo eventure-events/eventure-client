@@ -24,6 +24,16 @@ function EventController($log, $window, dataService, eventService, userService) 
       });
   };
 
+  this.initAutocomplete = function() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+    new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+  };
+
   // do not do this if we have a data service
   // will most likely remove
   // this.allEvents = function() {
