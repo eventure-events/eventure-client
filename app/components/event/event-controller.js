@@ -1,14 +1,22 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', EventController]);
+  app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', 'userService', EventController]);
 };
 
-function EventController($log, $window, dataService, eventService) {
+function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
 
+
   this.createEvent = function(eventInfo) {
-    eventService.createEvent(eventInfo)
+    $log.log('Creating event', eventInfo);
+    this.token = userService.getToken();
+    $log.log(this.token);
+    this.headers = {
+      authorization : 'Bearer ' + this.token,
+    };
+
+    eventService.createEvent(eventInfo, this.headers)
       .then((event) => {
         this.events.push(event);
         $window.location.href = '#/profile';
