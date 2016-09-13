@@ -29,7 +29,7 @@ function eventService($http, $log, $q, dataService) {
   service.allEvents = function() {
     return $q(function(resolve, reject) {
       $log.log('retrieving all events');
-      $http.get(baseUrl)
+      $http.get(baseUrl + '/public')
         .then((res) => {
           $log.log('success! all events retrieved: ', res.data);
           dataService.events = res.data;
