@@ -23,7 +23,6 @@ function EventController($log, $window, dataService, eventService, userService) 
         $window.location.href = '#/profile';
       });
   };
-}
 
   // do not do this if we have a data service
   // will most likely remove
@@ -50,3 +49,4 @@ function EventController($log, $window, dataService, eventService, userService) 
   //       this.events.splice(this.events.indexOf(data, 1));
   //     });
   // };
+}

@@ -4,7 +4,7 @@
   <div class="form-group">
     <input placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
     <input placeholder="Visibility" ng-model="$ctrl.event.visibility" type="text" name="visibility">
-    <input placeholder="Location" ng-model="$ctrl.event.location" type="text" name="location">
+    <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" onFocus="geolocate()" >
     <input placeholder="Description" ng-model="$ctrl.event.description" type="text" name="description">
   </div>
   <button type="submit" name="button"> Create </button>
