@@ -5,9 +5,6 @@ module.exports = exports = (app) => {
 };
 
 function NavController($log, userService, dataService) {
-  $log.log('Entering display controller');
-
-  this.user = dataService.user;
 
   this.isLoggedin;
 
@@ -18,6 +15,7 @@ function NavController($log, userService, dataService) {
         this.isLoggedIn = true;
         userService.setToken(userInfo.token.token);
         userService.setUser(userInfo.user);
+        this.currentUser = dataService.user;
       });
   };
 
