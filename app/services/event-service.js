@@ -14,7 +14,7 @@ function eventService($http, $log, $q, dataService) {
   // TODO: handle the data service's reflection of the update
   service.createEvent = function(eventData, auth) {
     return $q(function(resolve, reject) {
-      $log.log('creating event');
+      $log.log('service.createEvent creating event');
       $http.post(baseUrl, eventData, auth)
         .then((res) => {
           $log.log('success! event created', res.data);

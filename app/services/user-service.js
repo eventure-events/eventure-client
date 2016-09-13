@@ -20,10 +20,25 @@ function userService($http, $log, $q, $window, dataService) {
         },
       })
         .then((res) => {
-          $log.log(res.data);
+          $log.log('service.userSignIn res.data: ', res.data);
           resolve(res.data);
         }).catch((err) => {
           $log.log(err);
+          reject(err);
+        });
+    });
+  };
+
+  service.userSignUp = function(userData) {
+    return $q(function(resolve, reject) {
+      $log.log('Signing up user ', userData);
+      $log.log('$http.posting: ', baseUrl + 'signup', userData);
+      $http.post(baseUrl + 'signup', userData)
+        .then((res) => {
+          $log.log('service.userSignUp res.data: ', res.data);
+          resolve(res.data);
+        }).catch((err) => {
+          $log.log('error: ', err);
           reject(err);
         });
     });

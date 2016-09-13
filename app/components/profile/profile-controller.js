@@ -6,4 +6,5 @@ module.exports = exports = (app) => {
 
 function ProfileController($log) {
   $log.log('Entering profile controller');
+
 }

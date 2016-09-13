@@ -11,17 +11,19 @@ function EventController($log, $window, dataService, eventService, userService) 
   this.createEvent = function(eventInfo) {
     $log.log('Creating event', eventInfo);
     this.token = userService.getToken();
-    $log.log(this.token);
-    this.headers = {
-      authorization : 'Bearer ' + this.token,
+    this.config = {
+      'headers': {
+        'Authorization' : 'Bearer ' + this.token,
+      },
     };
 
-    eventService.createEvent(eventInfo, this.headers)
-      .then((event) => {
-        this.events.push(event);
+    eventService.createEvent(eventInfo, this.config)
+      .then((ev) => {
+        this.events.push(ev);
         $window.location.href = '#/profile';
       });
   };
+}
 
   // do not do this if we have a data service
   // will most likely remove
@@ -48,4 +50,3 @@ function EventController($log, $window, dataService, eventService, userService) 
   //       this.events.splice(this.events.indexOf(data, 1));
   //     });
   // };
-}

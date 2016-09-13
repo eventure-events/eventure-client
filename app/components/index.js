@@ -6,4 +6,5 @@ module.exports = function(app) {
   require('./profile')(app);
   require('./nav')(app);
   require('./map')(app);
+  require('./signup')(app);
 };
