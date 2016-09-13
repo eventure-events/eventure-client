@@ -20,10 +20,25 @@ function userService($http, $log, $q, $window, dataService) {
         },
       })
         .then((res) => {
-          $log.log(res.data);
+          $log.log('service.userSignIn res.data: ', res.data);
           resolve(res.data);
         }).catch((err) => {
           $log.log(err);
+          reject(err);
+        });
+    });
+  };
+
+  service.userSignUp = function(userData) {
+    return $q(function(resolve, reject) {
+      $log.log('Signing up user ', userData);
+      $log.log('$http.posting: ', baseUrl + 'signup', userData);
+      $http.post(baseUrl + 'signup', userData)
+        .then((res) => {
+          $log.log('service.userSignUp res.data: ', res.data);
+          resolve(res.data);
+        }).catch((err) => {
+          $log.log('error: ', err);
           reject(err);
         });
     });
@@ -34,6 +49,10 @@ function userService($http, $log, $q, $window, dataService) {
     $window.localStorage.token = token;
   };
 
+  service.getToken = function() {
+    return $window.localStorage.token;
+  };
+
   service.setUser = function(user) {
     $log.log('Setting user ', user);
     dataService.user = user;
@@ -41,6 +60,7 @@ function userService($http, $log, $q, $window, dataService) {
 
   service.userLogOut = function() {
     dataService.user = {};
+    $log.log('logging out', dataService.user);
     $window.localStorage.token = '';
   };
 

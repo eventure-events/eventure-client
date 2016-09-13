@@ -12,10 +12,10 @@ function eventService($http, $log, $q, dataService) {
   const baseUrl = `${__API_URL__}/api/event`;
 
   // TODO: handle the data service's reflection of the update
-  service.createEvent = function(eventData) {
+  service.createEvent = function(eventData, auth) {
     return $q(function(resolve, reject) {
-      $log.log('creating event');
-      $http.post(baseUrl, eventData)
+      $log.log('service.createEvent creating event');
+      $http.post(baseUrl, eventData, auth)
         .then((res) => {
           $log.log('success! event created', res.data);
           resolve(res.data);

@@ -1,19 +1,29 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', EventController]);
+  app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', 'userService', EventController]);
 };
 
-function EventController($log, $window, dataService, eventService) {
+function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
 
+
   this.createEvent = function(eventInfo) {
-    eventService.createEvent(eventInfo)
-      .then((event) => {
-        this.events.push(event);
+    $log.log('Creating event', eventInfo);
+    this.token = userService.getToken();
+    this.config = {
+      'headers': {
+        'Authorization' : 'Bearer ' + this.token,
+      },
+    };
+
+    eventService.createEvent(eventInfo, this.config)
+      .then((ev) => {
+        this.events.push(ev);
         $window.location.href = '#/profile';
       });
   };
+}
 
   // do not do this if we have a data service
   // will most likely remove
@@ -40,4 +50,3 @@ function EventController($log, $window, dataService, eventService) {
   //       this.events.splice(this.events.indexOf(data, 1));
   //     });
   // };
-}
