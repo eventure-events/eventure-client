@@ -1,5 +1,10 @@
 <div style="overflow-y: scroll; height:550px;">
-  <h2> Events </h2>
+  <h2>
+    Events
+    <a ng-click="create = true"><icon class="fa fa-plus"></icon></a>
+  </h2>
+  <ev-event-component redirect-to="" class="event-small" ng-if="create"></ev-event-component>
+
   <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
     <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
       <h3><a href="#/event/{{event._id}}">Name: {{event.name}}</a><h3>

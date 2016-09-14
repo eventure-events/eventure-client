@@ -9,7 +9,7 @@ function ListController($log, $window, dataService, eventService, userService) {
   .then(() => {
     this.events = dataService.events;
     this.listEvents = function() {
-      console.log('this.events: ', this.events);
+      $log.debug('this.events: ', this.events);
     };
 
     let limitStep = 4;
