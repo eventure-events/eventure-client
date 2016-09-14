@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
   app.component('evProfileComponent', {
-    controller: 'ProfileController',
+    controller: 'NavController',
     template: require('./profile-template.html'),
   });
 };
