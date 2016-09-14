@@ -6,6 +6,7 @@ module.exports = exports = (app) => {
 
 function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
+  this.event = {};
 
   this.createEvent = function(eventInfo) {
     $log.log('Creating event', eventInfo);
@@ -49,14 +50,22 @@ function EventController($log, $window, dataService, eventService, userService) 
   };
 
 
-  this.initAutocomplete = function() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-    new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+  // this.initAutocomplete = function() {
+  //   new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+  //   // autocomplete.addListener('click', );
+  // };
 
-        // When the user selects an address from the dropdown, populate the address
+  this.initAutocomplete = function() {
+    let input = document.getElementById('autocomplete');
+    let autocomplete = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (input), {
+      types: ['geocode'],
+    });
+    autocomplete.addListener('place_changed', () => {
+      let place = autocomplete.getPlace();
+      this.event.location = place.formatted_address;
+    });
   };
 
   // do not do this if we have a data service
