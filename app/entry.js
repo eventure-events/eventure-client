@@ -22,19 +22,19 @@ eventureApp.config(['$routeProvider', function($route) {
       template: require('./html/profile.html'),
     })
     .when('/event', {
-      templateUrl: '/app/html/event.html',
+      template: require('./html/event.html'),
     })
     .when('/event/:id', {
-      templateUrl: '/app/html/event-profile.html',
+      template: require('./html/event-profile.html'),
     })
     .when('/map', {
-      templateUrl: '/app/html/map.html',
+      template: require('./html/map.html'),
     })
     .when('/list', {
-      templateUrl: '/app/html/list.html',
+      template: require('./html/list.html'),
     })
     .when('/signup', {
-      templateUrl: '/app/html/signup.html',
+      template: require('./html/signup.html'),
     })
     .otherwise({
       redirectTo: '/',
