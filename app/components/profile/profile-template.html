@@ -22,12 +22,13 @@
     <p>
       Your friends: {{ $ctrl.userInfo.user.following }}
     </p>
+  </div>
 </div>
 
 <div class="panel panel-primary">
   <div class="panel-heading"> Your Events: </div>
 
   <ul class="list-group">
-    <li class="list-group-item" ng-model="$ctrl.yourEvents" ng-repeat="event in $ctrl.yourEvents"> Event name: {{ event.name }}  </li>
+    <li class="list-group-item" ng-repeat="event in $ctrl.yourEvents"> Event name: {{ event.name }}  </li>
   </ul>
 </div>

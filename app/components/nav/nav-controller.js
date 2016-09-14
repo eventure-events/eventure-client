@@ -7,13 +7,14 @@ module.exports = exports = (app) => {
 function NavController($log, userService, dataService, eventService, $location) {
 
   this.userInfo = dataService.userInfo;
-
   this.yourEvents = dataService.yourEvents;
 
   this.getYourEvents = function(username) {
     eventService.userEvents(username)
       .then((userEvents) => {
         this.yourEvents = dataService.yourEvents;
+        $log.log(dataService.yourEvents);
+        $log.log(this.yourEvents);
         $log.log(userEvents);
       });
   };
