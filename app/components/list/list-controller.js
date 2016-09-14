@@ -5,13 +5,15 @@ module.exports = exports = (app) => {
 };
 
 function ListController($log, $window, dataService, eventService, userService) {
-  eventService.allEvents()
-  .then(() => {
-    this.events = dataService.events;
+  // eventService.allEvents()
+  // .then(() => {
+  //   this.events = dataService.events;
+  //
+  //   this.token = userService.getToken();
+  //   this.listEvents = function() {
+  //     $log.debug('this.events: ', this.events);
+  //   };
+  // });
 
-    this.token = userService.getToken();
-    this.listEvents = function() {
-      $log.debug('this.events: ', this.events);
-    };
-  });
+  this.events = eventService.events;
 }
