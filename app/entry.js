@@ -13,28 +13,28 @@ require('./components')(eventureApp);
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      templateUrl: './app/html/home.html',
+      templateUrl: '/app/html/home.html',
     })
     .when('/profile', {
-      templateUrl: './app/html/profile.html',
+      templateUrl: '/app/html/profile.html',
     })
     .when('/profile/:username', {
-      templateUrl: './app/html/profile.html',
+      templateUrl: '/app/html/profile.html',
     })
     .when('/event', {
-      templateUrl: './app/html/event.html',
+      templateUrl: '/app/html/event.html',
     })
     .when('/event/:id', {
-      templateUrl: './app/html/event-profile.html',
+      templateUrl: '/app/html/event-profile.html',
     })
     .when('/map', {
-      templateUrl: './app/html/map.html',
+      templateUrl: '/app/html/map.html',
     })
     .when('/list', {
-      templateUrl: './app/html/list.html',
+      templateUrl: '/app/html/list.html',
     })
     .when('/signup', {
-      templateUrl: './app/html/signup.html',
+      templateUrl: '/app/html/signup.html',
     })
     .otherwise({
       redirectTo: '/',
