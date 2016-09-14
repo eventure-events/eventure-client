@@ -12,7 +12,7 @@ function NavController($log, userService, dataService, eventService, $location, 
     eventService.userEvents(localStorageUser.username)
     .then(() => {
       this.yourEvents = dataService.yourEvents;
-      $log.log('NavController -> yourEvents: ', this.yourEvents);
+      $log.debug('NavController -> yourEvents: ', this.yourEvents);
     });
   }
 
@@ -23,9 +23,9 @@ function NavController($log, userService, dataService, eventService, $location, 
     eventService.userEvents(username)
       .then((userEvents) => {
         this.yourEvents = dataService.yourEvents;
-        $log.log(dataService.yourEvents);
-        $log.log(this.yourEvents);
-        $log.log(userEvents);
+        $log.debug(dataService.yourEvents);
+        $log.debug(this.yourEvents);
+        $log.debug(userEvents);
       });
   };
 
@@ -42,10 +42,10 @@ function NavController($log, userService, dataService, eventService, $location, 
   this.userSignUp = function(userInfo) {
     userService.userSignUp(userInfo)
       .then((returnedInfo) => {
-        $log.log('SignupController returnedInfo: ', returnedInfo);
+        $log.debug('SignupController returnedInfo: ', returnedInfo);
         this.userLogIn(userInfo);
       }).catch((err) => {
-        $log.log('error: ', err);
+        $log.debug('error: ', err);
       });
   };
 

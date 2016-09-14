@@ -5,7 +5,7 @@ module.exports = exports = (app) => {
 };
 
 function eventService($http, $log, $q, dataService) {
-  $log.log('EventService :: ');
+  $log.debug('EventService :: ');
 
   const service = {};
 
@@ -14,13 +14,13 @@ function eventService($http, $log, $q, dataService) {
   // TODO: handle the data service's reflection of the update
   service.createEvent = function(eventData, auth) {
     return $q(function(resolve, reject) {
-      $log.log('service.createEvent creating event');
+      $log.debug('service.createEvent creating event');
       $http.post(baseUrl, eventData, auth)
         .then((res) => {
-          $log.log('success! event created', res.data);
+          $log.debug('success! event created', res.data);
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });
@@ -28,14 +28,14 @@ function eventService($http, $log, $q, dataService) {
 
   service.allEvents = function() {
     return $q(function(resolve, reject) {
-      $log.log('retrieving all events');
+      $log.debug('retrieving all events');
       $http.get(baseUrl + '/public')
         .then((res) => {
-          $log.log('success! all events retrieved: ', res.data);
+          $log.debug('success! all events retrieved: ', res.data);
           dataService.events = res.data;
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });
@@ -43,13 +43,13 @@ function eventService($http, $log, $q, dataService) {
 
   service.userEvents = function(username) {
     return $q(function(resolve, reject) {
-      $log.log('Retriving user specefic events');
+      $log.debug('Retriving user specefic events');
       $http.get(baseUrl + '/user/' + username + '/all')
         .then((res) => {
           dataService.yourEvents = res.data;
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });
@@ -57,13 +57,13 @@ function eventService($http, $log, $q, dataService) {
 
   service.searchEvent = function(eventId) {
     return $q(function(resolve, reject) {
-      $log.log('searching for an event');
+      $log.debug('searching for an event');
       $http.get(baseUrl + '/' + eventId)
         .then((res) => {
-          $log.log('success! event found: ', res.data);
+          $log.debug('success! event found: ', res.data);
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });
@@ -72,13 +72,13 @@ function eventService($http, $log, $q, dataService) {
   // TODO: handle the data service's reflection of the update
   service.updateEvent = function(eventData) {
     return $q(function(resolve, reject) {
-      $log.log('updating an event');
+      $log.debug('updating an event');
       $http.put(baseUrl + '/' + eventData._id, eventData)
         .then((res) => {
-          $log.log('success! event updated: ', res.data);
+          $log.debug('success! event updated: ', res.data);
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });
@@ -87,13 +87,13 @@ function eventService($http, $log, $q, dataService) {
   // TODO: handle the data service's reflection of the update
   service.deleteEvent = function(eventData) {
     return $q(function(resolve, reject) {
-      $log.log('deleting an event');
+      $log.debug('deleting an event');
       $http.delete(baseUrl + '/' + eventData._id)
         .then((res) => {
-          $log.log('success! event deleted: ', res.data);
+          $log.debug('success! event deleted: ', res.data);
           resolve(res.data);
         }).catch((err) => {
-          $log.log(err);
+          $log.debug(err);
           reject(err);
         });
     });

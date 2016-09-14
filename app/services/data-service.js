@@ -14,7 +14,7 @@ function dataService($log) {
   service.userInfo = {};
   service.userInfo.user = {};
   service.userInfo.isLoggedIn = false;
-  $log.log('Info from factory :: ', service.events);
+  $log.debug('Info from factory :: ', service.events);
 
   return service;
 }
