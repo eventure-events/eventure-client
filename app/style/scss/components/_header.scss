@@ -1,0 +1,24 @@
+li {
+    font-size: 2.0em;
+}
+
+.navbar img {
+    height: 20pt;
+}
+
+h5 {
+  padding-right: 10px;
+}
+
+.log-out-btn {
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .form-control{
+    width: 15%;
+    display: block;
+    float: right;
+  }
+}
