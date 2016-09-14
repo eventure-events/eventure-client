@@ -77,6 +77,12 @@ function NavController($log, userService, dataService, eventService, $location, 
 
   this.userLogOut = function() {
     userService.userLogOut();
+    eventService.publicEvents()
+    .then((ev) => {
+      ev.forEach((item) => {
+        dataService.events.push(item);
+      });
+    });
     $location.path('/');
   };
 
