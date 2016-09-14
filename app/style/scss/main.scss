@@ -3,8 +3,8 @@
 @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
-@import "./header.scss";
-@import "./home.scss";
+@import "./components/_header.scss";
+@import "./components/_home.scss";
 
 // import order
 // utils, vendor, base, layout, components, pages, themes
