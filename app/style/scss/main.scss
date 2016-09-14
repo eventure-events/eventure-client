@@ -4,6 +4,7 @@
 @import "../vendor/font-awesome/scss/font-awesome";
 
 @import "./header.scss";
+@import "./home.scss";
 
 // import order
 // utils, vendor, base, layout, components, pages, themes
@@ -19,8 +20,4 @@
 
 body {
   padding-top: 70px;
-}
-
-#map {
-  height: 400px;
 }
