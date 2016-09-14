@@ -10,6 +10,10 @@ let eventureApp = angular.module('eventureApp', [require('angular-route')]);
 require('./services')(eventureApp);
 require('./components')(eventureApp);
 
+eventureApp.config(['$logProvider', function($logProvider){
+  $logProvider.debugEnabled(__DEBUG__);
+}]);
+
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
