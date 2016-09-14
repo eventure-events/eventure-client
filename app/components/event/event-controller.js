@@ -7,6 +7,7 @@ module.exports = exports = (app) => {
 function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
   this.event = {};
+  console.log(this.redirectTo);
 
   this.createEvent = function(eventInfo) {
     $log.debug('Creating event', eventInfo);
@@ -23,7 +24,7 @@ function EventController($log, $window, dataService, eventService, userService) 
       eventService.createEvent(eventInfo, this.config)
         .then((ev) => {
           this.events.push(ev);
-          $window.location.href = '#/profile';
+          if(this.redirectTo !== '') $window.location.href = this.redirectTo;
         });
     });
   };
