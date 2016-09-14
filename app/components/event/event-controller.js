@@ -8,8 +8,8 @@ function EventController($log, $window, dataService, eventService, userService) 
   this.events = dataService.events;
 
   this.createEvent = function(eventInfo) {
-    $log.log('Creating event', eventInfo);
-    $log.log('EventController.createEvent eventInfo.location: ', eventInfo.location);
+    $log.debug('Creating event', eventInfo);
+    $log.debug('EventController.createEvent eventInfo.location: ', eventInfo.location);
     this.token = userService.getToken();
     this.config = {
       'headers': {

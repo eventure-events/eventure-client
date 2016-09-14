@@ -8,8 +8,8 @@ function MapController($log, dataService, eventService) {
   eventService.allEvents()
     .then((all) => {
       dataService.events = all;
-      $log.log('dataService: ', dataService);
-      $log.log('dataService.events: ', dataService.events);
+      $log.debug('dataService: ', dataService);
+      $log.debug('dataService.events: ', dataService.events);
       const mapEle = document.getElementById('map');
       const center = {
         lat: 47.6205379,
