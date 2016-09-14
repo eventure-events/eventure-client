@@ -5,8 +5,8 @@
     <input placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
     <select ng-model="$ctrl.event.visibility" name="visibility">
       <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
-      <option value="private" selected>public</option>
-      <option value="public">private</option>
+      <option value="private">private</option>
+      <option value="public">public</option>
     </select>
     <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
     <input placeholder="Description" ng-model="$ctrl.event.description" type="text" name="description">
