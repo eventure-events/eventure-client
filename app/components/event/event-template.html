@@ -11,7 +11,7 @@
       <option value="public">public</option>
     </select><br>
     <label for="location">Location</label>
-    <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()"><br>
+    <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-focus="$ctrl.initAutocomplete()"><br>
     <label for="date">Date:</label>
     <input placeholder="Date" value="date" type="date" name="event-date" ng-model="$ctrl.event.date"><br>
     <label for="start-start">Start Time:</label>
