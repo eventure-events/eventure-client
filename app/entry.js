@@ -13,9 +13,12 @@ require('./components')(eventureApp);
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      templateUrl: './app/html/map.html',
+      templateUrl: './app/html/home.html',
     })
     .when('/profile', {
+      templateUrl: './app/html/profile.html',
+    })
+    .when('/profile/:username', {
       templateUrl: './app/html/profile.html',
     })
     .when('/event', {
