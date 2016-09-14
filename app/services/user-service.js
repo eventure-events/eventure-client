@@ -21,6 +21,7 @@ function userService($http, $log, $q, $window, dataService) {
       })
         .then((res) => {
           $log.log('service.userSignIn res.data: ', res.data);
+          $window.localStorage.user = JSON.stringify(res.data.user);
           resolve(res.data);
         }).catch((err) => {
           $log.log(err);
@@ -65,6 +66,7 @@ function userService($http, $log, $q, $window, dataService) {
     dataService.userInfo.isLoggedIn = false;
     $log.log('logging out', dataService.userInfo);
     $window.localStorage.token = '';
+    $window.localStorage.user = '';
   };
 
   return service;
