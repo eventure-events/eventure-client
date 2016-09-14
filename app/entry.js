@@ -17,28 +17,28 @@ eventureApp.config(['$logProvider', function($logProvider){
 eventureApp.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      templateUrl: '/app/html/home.html',
+      template: require('./html/home.html'),
     })
     .when('/profile', {
-      templateUrl: '/app/html/profile.html',
+      template: require('./html/profile.html'),
     })
     .when('/profile/:username', {
-      templateUrl: '/app/html/profile.html',
+      template: require('./html/profile.html'),
     })
     .when('/event', {
-      templateUrl: '/app/html/event.html',
+      template: require('./html/event.html'),
     })
     .when('/event/:id', {
-      templateUrl: '/app/html/event-profile.html',
+      template: require('./html/event-profile.html'),
     })
     .when('/map', {
-      templateUrl: '/app/html/map.html',
+      template: require('./html/map.html'),
     })
     .when('/list', {
-      templateUrl: '/app/html/list.html',
+      template: require('./html/list.html'),
     })
     .when('/signup', {
-      templateUrl: '/app/html/signup.html',
+      template: require('./html/signup.html'),
     })
     .otherwise({
       redirectTo: '/',
