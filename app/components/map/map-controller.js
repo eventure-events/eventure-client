@@ -6,7 +6,10 @@ module.exports = exports = (app) => {
 
 function MapController($log, dataService, eventService) {
   eventService.allEvents()
-    .then(() => {
+    .then((all) => {
+      dataService.events = all;
+      $log.log('dataService: ', dataService);
+      $log.log('dataService.events: ', dataService.events);
       const mapEle = document.getElementById('map');
       const center = {
         lat: 47.6205379,
@@ -18,15 +21,19 @@ function MapController($log, dataService, eventService) {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       };
       let map = new google.maps.Map(mapEle, mapOptions);
+      let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let labelIndex = 0;
+      let you = require('../../resources/you.png');
 
 
       dataService.events.forEach(function(item) {
         let marker = new google.maps.Marker({
           position: item.latLong,
+          label: labels[labelIndex % labels.length],
           map: map,
         });
         let infoWindow = new google.maps.InfoWindow({
-          content: '<a href="#/event/' + item._id + '">' + item.name + '</a><br/>' + item.location + '<br/>' + item.description,
+          content: '<a href="#/event/' + item._id + '">' + labels[labelIndex++ % labels.length] + '.  ' + item.name + '</a><br/>' + item.location + '<br/>' + item.description,
         });
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
@@ -46,6 +53,7 @@ function MapController($log, dataService, eventService) {
           let yourlocationMarker = new google.maps.Marker({
             position: pos,
             map: map,
+            icon: you,
             title:'your location',
           });
 
