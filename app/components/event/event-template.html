@@ -1,25 +1,33 @@
-<h2> Create an event! </h2>
+<div ng-show="!edit">
+  <h2> Create an event! </h2>
 
-<form class="form" ng-submit="$ctrl.createEvent($ctrl.event)">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name"><br>
-    <label for="visibility">Privacy</label>
-    <select ng-model="$ctrl.event.visibility" name="visibility">
-      <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
-      <option value="private">private</option>
-      <option value="public">public</option>
-    </select><br>
-    <label for="location">Location</label>
-    <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-focus="$ctrl.initAutocomplete()"><br>
-    <label for="date">Date:</label>
-    <input placeholder="Date" value="date" type="date" name="event-date" ng-model="$ctrl.event.date"><br>
-    <label for="start-start">Start Time:</label>
-    <input value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime"><br>
-    <label for="start-start">End Time:</label>
-    <input value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime"><br>
-    <label for="start-start">Description</label>
-    <input placeholder="Description" ng-model="$ctrl.event.description" type="text" name="description">
-  </div>
-  <button type="submit" name="button"> Create </button>
-</form>
+  <form class="form" ng-submit="edit = true; $ctrl.createEvent($ctrl.event)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
+      <br>
+      <label for="visibility">Privacy</label>
+      <select ng-model="$ctrl.event.visibility" name="visibility">
+        <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
+        <option value="private">private</option>
+        <option value="public">public</option>
+      </select>
+      <br>
+      <label for="location">Location</label>
+      <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
+      <br>
+      <label for="date">Date:</label>
+      <input placeholder="Date" value="date" type="date" name="event-date" ng-model="$ctrl.event.date">
+      <br>
+      <label for="start-start">Start Time:</label>
+      <input value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime">
+      <br>
+      <label for="start-start">End Time:</label>
+      <input value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime">
+      <br>
+      <label for="start-start">Description</label>
+      <input placeholder="Description" ng-model="$ctrl.event.description" type="text" name="description">
+    </div>
+    <button type="submit" name="button"> Create </button>
+  </form>
+</div>
