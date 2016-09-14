@@ -6,5 +6,5 @@ module.exports = exports = (app) => {
 
 function ProfileController($log, dataService) {
   this.userInfo = dataService.userInfo;
-
+  this.yourEvents = dataService.yourEvents;
 }
