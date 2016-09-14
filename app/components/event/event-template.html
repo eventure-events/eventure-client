@@ -1,11 +1,15 @@
-<!-- this does not work and will have to be rewritten -->
+<h2> Create an event! </h2>
 
-<h2>test</h2>
-
-<form ng-submit="eventCtrl.createEvent(eventCtrl.event)">
-  <input placeholder="Name" ng-model="eventCtrl.event.name" type="text" name="name">
-  <input placeholder="Visibility" ng-model="eventCtrl.event.visibility" type="text" name="visibility">
-  <input placeholder="Location" ng-model="eventCtrl.event.location" type="text" name="location">
-  <input placeholder="Description" ng-model="eventCtrl.event.description" type="text" name="description">
-  <button type="submit" name="button">Create</button>
+<form class="form" ng-submit="$ctrl.createEvent($ctrl.event)">
+  <div class="form-group">
+    <input placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
+    <select ng-model="$ctrl.event.visibility" name="visibility">
+      <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
+      <option value="private" selected>public</option>
+      <option value="public">private</option>
+    </select>
+    <input placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
+    <input placeholder="Description" ng-model="$ctrl.event.description" type="text" name="description">
+  </div>
+  <button type="submit" name="button"> Create </button>
 </form>

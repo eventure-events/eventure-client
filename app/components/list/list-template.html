@@ -1,0 +1,10 @@
+<h1> Events </h1>
+
+<ul ng-init="$ctrl.listEvents()" class="event-list">
+  <li ng-repeat="event in $ctrl.events">
+    <h3>Name: {{event.name}}<h3>
+      <p>Description: {{event.description}}</p>
+      <p>Location: {{event.location}}</p>
+      <p>Created by: {{event.username}}</p>
+    </li>
+</ul>

@@ -10,22 +10,11 @@ module.exports = exports = (app) => {
 function dataService($log) {
   const service = {};
   service.events = [];
-  service.users = [];
+  service.yourEvents = [];
+  service.userInfo = {};
+  service.userInfo.user = {};
+  service.userInfo.isLoggedIn = false;
   $log.log('Info from factory :: ', service.events);
-
-  // data handling operation goes here, to be called in event service or controllers
-  service.createEvent = function(ev) {
-    this.events.push(ev);
-  };
-
-
-  service.updateEvent = function(ev) {
-
-  };
-
-  service.deleteEvent = function(ev) {
-
-  };
 
   return service;
 }

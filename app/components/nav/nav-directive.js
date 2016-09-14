@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-  app.component('evProfileComponent', {
+  app.component('evNavComponent', {
     controller: 'NavController',
-    template: require('./profile-template.html'),
+    template: require('./nav-template.html'),
   });
 };
