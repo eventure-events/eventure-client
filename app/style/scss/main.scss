@@ -3,8 +3,12 @@
 @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
+
+@import "./components/_header.scss";
+
 @import "./utils/_mixins.scss";
 @import "./theme/_theme.scss";
+
 
 @import "./base/_base.scss";
 
