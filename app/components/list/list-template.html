@@ -1,19 +1,21 @@
-<h2> Events
+<h2>
+  Events
   <a ng-click="create = true"><icon class="fa fa-plus"></icon></a>
 </h2>
-
 <ev-event-component redirect-to="" class="event-small" ng-if="create"></ev-event-component>
 
 <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
-  <li ng-repeat="event in $ctrl.events">
-    <h3>
-      <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
-      Name: {{event.name}}
-    <h3>
-      <div ng-show="divShow">
-        <h5>Location: {{event.location}}</h5>
-        <h5>Description: {{event.description}}</h5>
-        <h5>Event Creator: {{event.username}} | <a> Follow me! </a></h5>
-      </div>
-    </li>
+<li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
+  <h3>
+    <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
+    Name: {{event.name}}
+  <h3>
+    <div ng-show="divShow">
+      <h5>Location: {{event.location}}</h5>
+      <h5>Description: {{event.description}}</h5>
+      <h5>Event Creator: {{event.username}} | <a> Follow me! </a></h5>
+    </div>
+  </li>
 </ol>
+<button class="btn btn-default" ng-click="$ctrl.incrementLimit()">show more</button>
+<button class="btn btn-default" ng-click="$ctrl.decrementLimit()">show less</button>
