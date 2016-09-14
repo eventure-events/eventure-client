@@ -42,6 +42,13 @@ function MapController($log, dataService, eventService) {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+
+          let yourlocationMarker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title:'your location',
+          });
+
           map.setCenter(pos);
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
