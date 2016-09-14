@@ -26,13 +26,40 @@ function eventService($http, $log, $q, dataService) {
     });
   };
 
-  service.allEvents = function() {
+  service.publicEvents = function() {
     return $q(function(resolve, reject) {
-      $log.debug('retrieving all events');
+      $log.debug('retrieving public events');
       $http.get(baseUrl + '/public')
         .then((res) => {
           $log.debug('success! all events retrieved: ', res.data);
-          dataService.events = res.data;
+          resolve(res.data);
+        }).catch((err) => {
+          $log.debug(err);
+          reject(err);
+        });
+    });
+  };
+
+  service.followeeEvents = function(auth) {
+    return $q(function(resolve, reject) {
+      $log.debug('retrieving public events');
+      $http.get(baseUrl + '/followed', auth)
+        .then((res) => {
+          $log.debug('success! followed events retrieved: ', res.data);
+          resolve(res.data);
+        }).catch((err) => {
+          $log.debug(err);
+          reject(err);
+        });
+    });
+  };
+
+  service.allVisibleEvents = function(auth) {
+    return $q(function(resolve, reject) {
+      $log.debug('retrieving public events');
+      $http.get(baseUrl + '/allVisible', auth)
+        .then((res) => {
+          $log.debug('success! all visible events retrieved: ', res.data);
           resolve(res.data);
         }).catch((err) => {
           $log.debug(err);
@@ -46,7 +73,7 @@ function eventService($http, $log, $q, dataService) {
       $log.debug('Retriving user specefic events');
       $http.get(baseUrl + '/user/' + username + '/all')
         .then((res) => {
-          dataService.yourEvents = res.data;
+          // dataService.yourEvents = res.data;
           resolve(res.data);
         }).catch((err) => {
           $log.debug(err);
