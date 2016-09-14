@@ -21,7 +21,7 @@ eventureApp.config(['$routeProvider', function($route) {
     .when('/event', {
       templateUrl: './app/html/event.html',
     })
-    .when('/event/:name', {
+    .when('/event/:id', {
       templateUrl: './app/html/event-profile.html',
     })
     .when('/map', {

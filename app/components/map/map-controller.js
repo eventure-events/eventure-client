@@ -6,7 +6,10 @@ module.exports = exports = (app) => {
 
 function MapController($log, dataService, eventService) {
   eventService.allEvents()
-    .then(() => {
+    .then((all) => {
+      dataService.events = all;
+      $log.log('dataService: ', dataService);
+      $log.log('dataService.events: ', dataService.events);
       const mapEle = document.getElementById('map');
       const center = {
         lat: 47.6205379,

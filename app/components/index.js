@@ -8,4 +8,5 @@ module.exports = function(app) {
   require('./map')(app);
   require('./list')(app);
   require('./signup')(app);
+  require('./event-profile')(app);
 };
