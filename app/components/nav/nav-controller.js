@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('NavController', ['$log', 'userService', 'dataService', 'eventService', '$location', '$window', NavController]);
+  app.controller('NavController', ['$log', '$anchorScroll', 'userService', 'dataService', 'eventService', '$location', '$window', NavController]);
 };
 
-function NavController($log, userService, dataService, eventService, $location, $window) {
+function NavController($log, $anchorScroll, userService, dataService, eventService, $location, $window) {
   let localStorageUser;
   if (userService.getToken()) {
     localStorageUser = JSON.parse($window.localStorage.user);
@@ -15,7 +15,6 @@ function NavController($log, userService, dataService, eventService, $location, 
       $log.debug('NavController -> yourEvents: ', this.yourEvents);
     });
   }
-
 
   this.userInfo = dataService.userInfo;
 
