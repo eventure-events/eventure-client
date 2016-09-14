@@ -8,10 +8,20 @@ function ListController($log, $window, dataService, eventService, userService) {
   eventService.allEvents()
   .then(() => {
     this.events = dataService.events;
-
-    this.token = userService.getToken();
     this.listEvents = function() {
       console.log('this.events: ', this.events);
     };
+
+    let limitStep = 4;
+    this.limit = limitStep;
+
+    this.incrementLimit = function() {
+      this.limit += limitStep;
+    };
+
+    this.decrementLimit = function() {
+      this.limit -= limitStep;
+    };
+
   });
 }
