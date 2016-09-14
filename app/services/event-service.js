@@ -41,6 +41,20 @@ function eventService($http, $log, $q, dataService) {
     });
   };
 
+  service.userEvents = function(username) {
+    return $q(function(resolve, reject) {
+      $log.log('Retriving user specefic events');
+      $http.get(baseUrl + '/user/' + username + '/all')
+        .then((res) => {
+          dataService.yourEvents = res.data;
+          resolve(res.data);
+        }).catch((err) => {
+          $log.log(err);
+          reject(err);
+        });
+    });
+  };
+
   service.searchEvent = function(eventId) {
     return $q(function(resolve, reject) {
       $log.log('searching for an event');

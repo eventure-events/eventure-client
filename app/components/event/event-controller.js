@@ -7,22 +7,47 @@ module.exports = exports = (app) => {
 function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
 
-
   this.createEvent = function(eventInfo) {
     $log.log('Creating event', eventInfo);
+    $log.log('EventController.createEvent eventInfo.location: ', eventInfo.location);
     this.token = userService.getToken();
     this.config = {
       'headers': {
-        'Authorization' : 'Bearer ' + this.token,
+        'Authorization': 'Bearer ' + this.token,
       },
     };
 
-    eventService.createEvent(eventInfo, this.config)
-      .then((ev) => {
-        this.events.push(ev);
-        $window.location.href = '#/profile';
-      });
+    this.geocode(eventInfo)
+    .then(eventInfo => {
+      eventService.createEvent(eventInfo, this.config)
+        .then((ev) => {
+          this.events.push(ev);
+          $window.location.href = '#/profile';
+        });
+    });
   };
+
+
+  this.geocode = function(eventInfo) {
+    return new Promise((resolve, reject) => {
+      const geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({
+        'address': eventInfo.location,
+      }, function(results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+          eventInfo.latLong = {
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng(),
+          };
+          resolve(eventInfo);
+        }
+      });
+
+    });
+  };
+
 
   this.initAutocomplete = function() {
         // Create the autocomplete object, restricting the search to geographical
