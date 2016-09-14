@@ -1,12 +1,12 @@
 <h2>
-  Events
-  <a ng-click="create = true"><icon class="fa fa-plus"></icon></a>
+  <a ng-click="create = true" ng-show="!create"><icon class="fa fa-plus"></icon></a>
+  <a ng-click="create = false" ng-show="create"><icon class="fa fa-times"></icon></a>
 </h2>
 <ev-event-component redirect-to="" class="event-small" ng-if="create"></ev-event-component>
 
 <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
-<li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
-  <h3>
+  <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
+    <h3>
     <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
     Name: {{event.name}}
   <h3>
