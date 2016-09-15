@@ -27,7 +27,7 @@ function MapController($log, $window, dataService, eventService, userService) {
         },
       };
 
-      eventService.publicEvents()
+      eventService.allVisibleEvents(authConfig)
       .then((ev) => {
         dataService.events.splice(0, dataService.events.length);
         ev.forEach((item) => {
