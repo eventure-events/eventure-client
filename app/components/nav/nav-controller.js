@@ -32,6 +32,13 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
       });
   };
 
+  // this.deleteEvent = function(username) {
+  //   eventService.deleteEvent(id)
+  //     .then(() => {
+  //
+  //     });
+  // };
+
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
       .then((userInfo) => {

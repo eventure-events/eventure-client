@@ -11,11 +11,11 @@
               <div class="panel-heading">
                 <button type="button" ng-click="showDiv = !showDiv" class="btn btn-primary"> Expand </button>
                 <button type="button" ng-click="" class="btn btn-danger"> Delete </button>
-                 Event name: {{ event.name }}
+                 <h3 style="display:inline-block; padding-left:10px;"> Event name: {{ event.name }} </h3>
               </div>
               <ul class="list-group" ng-show="showDiv">
-                <li class="list-group-item"> {{ event.location }} </li>
-                <li class="list-group-item"> {{ event.description }} </li>
+                <li class="list-group-item"> Location: {{ event.location }} </li>
+                <li class="list-group-item"> Description: {{ event.description }} </li>
               </ul>
             </div>
 
