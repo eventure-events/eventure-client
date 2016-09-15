@@ -1,22 +1,16 @@
 <h2> Events </h2>
 
-
-
-<button ng-click="$ctrl.getEvents()" type="button" name="button">Get Events</button>
-
-
-
-<ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
+<ol type="A" class="event-list">
   <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
     <h3>
-    <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
     Name: {{event.name}}
+    <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
   <h3>
     <div ng-show="divShow">
 
-      <h5>Location: {{event.location}}</h5>
-      <h5>Description: {{event.description}}</h5>
-      <h5>Event Creator: {{event.username}} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
+      <h5> Location: {{ event.location }}</h5>
+      <h5> Description: {{ event.description }}</h5>
+      <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
 
     </div>
   </li>
