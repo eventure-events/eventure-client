@@ -3,21 +3,17 @@
 @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
-@import "./header.scss";
-@import "./home.scss";
 
-// import order
-// utils, vendor, base, layout, components, pages, themes
+@import "./components/_header.scss";
 
-.right{
-  float: right;
-  width: 30%;
-  height: 100%;
-}
+@import "./utils/_mixins.scss";
+@import "./theme/_theme.scss";
 
 
-.angular-google-map-container { height: 400px; }
+@import "./base/_base.scss";
 
-body {
-  padding-top: 70px;
-}
+@import "./components/_nav.scss";
+@import "./components/_home.scss";
+@import "./components/_list.scss";
+@import "./components/_event-form.scss";
+@import "./components/_profile.scss";

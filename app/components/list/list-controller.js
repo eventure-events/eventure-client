@@ -1,17 +1,37 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('ListController', ['$log', '$window', 'dataService', 'eventService', 'userService', ListController]);
+  app.controller('ListController', ['$rootScope', 'dataService', 'userService', ListController]);
 };
 
-function ListController($log, $window, dataService, eventService, userService) {
-  eventService.allEvents()
-  .then(() => {
-    this.events = dataService.events;
+function ListController($rootScope, dataService, userService) {
+  this.events = [];
 
-    this.token = userService.getToken();
-    this.listEvents = function() {
-      $log.debug('this.events: ', this.events);
-    };
+  this.followUser = function(username) {
+    userService.followUser(username)
+      .then(followed => dataService.userInfo.user.following.push(followed));
+  };
+
+  $rootScope.$on('viewportEvents', () => {
+    if (this.events) {
+      this.events = dataService.viewportEvents;
+    }
+    $rootScope.$digest();
   });
+
+  if (this.limit > this.events.length) {
+    this.limitReached = true;
+  }
+
+  let limitStep = 4;
+  this.limit = limitStep;
+
+  this.incrementLimit = function() {
+    this.limit += limitStep;
+  };
+
+  this.decrementLimit = function() {
+    this.limit -= limitStep;
+  };
+
 }
