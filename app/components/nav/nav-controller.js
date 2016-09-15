@@ -5,18 +5,22 @@ module.exports = exports = (app) => {
 };
 
 function NavController($log, $anchorScroll, userService, dataService, eventService, $location, $window) {
-  let localStorageUser;
-  if (userService.getToken()) {
-    localStorageUser = JSON.parse($window.localStorage.user);
-    if (userService.getToken() !== '') userService.setUser(localStorageUser);
-    eventService.userEvents(localStorageUser.username)
-    .then(() => {
-      this.yourEvents = dataService.yourEvents;
-      $log.debug('NavController -> yourEvents: ', this.yourEvents);
-    });
-  }
-
   this.userInfo = dataService.userInfo;
+  this.events = dataService.events;
+
+  if (userService.getToken()) {
+
+    let localStorageUser = JSON.parse($window.localStorage.user);
+
+    if (userService.getToken() !== '') {
+      const userToken = userService.getToken();
+      userService.setUser(localStorageUser);
+      eventService.userEvents(dataService.userInfo.user.username)
+      .then((ev) => {
+        this.yourEvents = dataService.yourEvents = ev;
+      });
+    }
+  }
 
   this.getYourEvents = function(username) {
     eventService.userEvents(username)
@@ -50,6 +54,12 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
 
   this.userLogOut = function() {
     userService.userLogOut();
+    eventService.publicEvents()
+    .then((ev) => {
+      ev.forEach((item) => {
+        dataService.events.push(item);
+      });
+    });
     $location.path('/');
   };
 
