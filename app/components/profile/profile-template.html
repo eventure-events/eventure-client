@@ -12,12 +12,14 @@
                 <button type="button" ng-click="showDiv = !showDiv" ng-show="!showDiv" class="btn btn-primary fa fa-angle-double-down"> </button>
                 <button type="button" ng-click="showDiv = !showDiv" ng-show="showDiv" class="btn btn-primary fa fa-angle-double-up"> </button>
 
-                <a ng-click="" class="corner fa fa-times"> </a>
+                <a ng-click="$ctrl.deleteEvent(event._id)" class="corner fa fa-times"> </a>
                 <h3 style="display:inline-block; padding-left:10px;"> Event name: {{ event.name }} </h3>
               </div>
               <ul class="list-group" ng-show="showDiv">
                 <li class="list-group-item"> Location: {{ event.location }} </li>
                 <li class="list-group-item"> Description: {{ event.description }} </li>
+                <li class="list-group-item"> Visibility: {{ event.visibility }} </li>
+                <li class="list-group-item"> _Id: {{ event._id }} </li>
               </ul>
             </div>
 
