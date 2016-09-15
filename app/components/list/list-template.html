@@ -7,9 +7,11 @@
     Name: {{event.name}}
   <h3>
     <div ng-show="divShow">
-      <h5> Location: {{event.location}} </h5>
-      <h5>Description: {{event.description}} </h5>
-      <h5>Event Creator: {{event.username}} | <a> Follow me! </a></h5>
+
+      <h5>Location: {{event.location}}</h5>
+      <h5>Description: {{event.description}}</h5>
+      <h5>Event Creator: {{event.username}} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
+
     </div>
   </li>
 </ol>

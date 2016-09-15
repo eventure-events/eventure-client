@@ -68,5 +68,31 @@ function userService($http, $log, $q, $window, dataService) {
     $window.localStorage.user = '';
   };
 
+  service.followUser = function(username) {
+    $log.debug('service.followUser');
+
+    const user = dataService.userInfo.user;
+    const token = $window.localStorage.token;
+
+    const authConfig = {
+      'headers': {
+        'Authorization': 'Bearer ' + token,
+      },
+    };
+
+    console.log(authConfig);
+
+    return $q(function(resolve, reject) {
+      $http.post(baseUrl + 'user/' + user.username + '/follow/' + username, null, authConfig)
+        .then((res) => {
+          $log.debug('success! followed', res.data);
+          resolve(res.data);
+        }).catch((err) => {
+          $log.debug(err);
+          reject(err);
+        });
+    });
+  };
+  
   return service;
 }
