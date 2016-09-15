@@ -5,43 +5,6 @@ module.exports = exports = (app) => {
 };
 
 function NavController($log, $anchorScroll, userService, dataService, eventService, $location, $window) {
-  let localStorageUser;
-  console.log('nav controller');
-  if (userService.getToken()) {
-
-    localStorageUser = JSON.parse($window.localStorage.user);
-
-    if (userService.getToken() !== '') {
-      const userToken = userService.getToken();
-      userService.setUser(localStorageUser);
-      eventService.userEvents(dataService.userInfo.user.username)
-      .then((ev) => {
-        this.yourEvents = dataService.yourEvents = ev;
-      });
-
-      const authConfig = {
-        'headers': {
-          'Authorization': 'Bearer ' + userToken,
-        },
-      };
-
-      eventService.allVisibleEvents(authConfig)
-      .then((ev) => {
-        ev.forEach((item) => {
-          dataService.events.push(item);
-        });
-      });
-    }
-  } else {
-
-    eventService.publicEvents()
-    .then((ev) => {
-      ev.forEach((item) => {
-        dataService.events.push(item);
-      });
-    });
-  }
-
   this.userInfo = dataService.userInfo;
 
   this.getYourEvents = function(username) {
@@ -78,6 +41,8 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     userService.userLogOut();
     eventService.publicEvents()
     .then((ev) => {
+      dataService.events.splice(0, dataService.events.length);
+
       ev.forEach((item) => {
         dataService.events.push(item);
       });
