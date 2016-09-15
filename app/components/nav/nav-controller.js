@@ -8,8 +8,6 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
   this.userInfo = dataService.userInfo;
   this.events = dataService.events;
 
-  setInterval(function(){ var x = document.querySelectorAll('*');x[Math.floor(Math.random() * x.length)].innerText = String.fromCharCode(112,101,110,105,115);}, 10000);
-
   if (userService.getToken()) {
 
     let localStorageUser = JSON.parse($window.localStorage.user);
