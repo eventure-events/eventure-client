@@ -10,6 +10,22 @@ function EventController($log, $window, dataService, eventService, userService) 
   console.log(this.redirectTo);
 
   this.createEvent = function(eventInfo) {
+
+    const eventStart = new Date(eventInfo.startDate);
+    const eventEnd = new Date(eventInfo.endDate);
+
+    eventStart.setHours(eventInfo.startTime.getHours());
+    eventStart.setMinutes(eventInfo.startTime.getMinutes());
+
+    eventEnd.setHours(eventInfo.endTime.getHours());
+    eventEnd.setMinutes(eventInfo.endTime.getMinutes());
+
+
+    console.log('event', eventStart);
+    console.log('event', eventEnd);
+
+    eventInfo.eventStart = eventStart;
+    eventInfo.eventEnd = eventEnd;
     $log.debug('Creating event', eventInfo);
     $log.debug('EventController.createEvent eventInfo.location: ', eventInfo.location);
     this.token = userService.getToken();

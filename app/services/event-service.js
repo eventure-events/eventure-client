@@ -127,6 +127,21 @@ function eventService($http, $log, $q, dataService) {
     });
   };
 
+  service.addComment = function(eventId, comment, auth) {
+    return $q(function(resolve, reject) {
+      $log.debug('adding a comment');
+
+      $http.post(baseUrl + '/' + eventId + '/comment', comment, auth)
+        .then((res) => {
+          $log.debug('success! added comment: ', res.data);
+          resolve(res.data);
+        }).catch((err) => {
+          $log.debug(err);
+          reject(err);
+        });
+    });
+  };
+
   return service;
 
 }
