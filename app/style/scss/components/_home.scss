@@ -17,6 +17,10 @@
   overflow: auto;
 }
 
+.list-component ol {
+  font-size: 2em;
+}
+
 @media (max-width: 768px) {
   #map{
     height: 28em;
