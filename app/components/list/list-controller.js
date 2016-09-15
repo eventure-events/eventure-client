@@ -19,6 +19,10 @@ function ListController($rootScope, dataService, userService) {
     $rootScope.$digest();
   });
 
+  if (this.limit > this.events.length) {
+    this.limitReached = true;
+  }
+
   let limitStep = 4;
   this.limit = limitStep;
 
