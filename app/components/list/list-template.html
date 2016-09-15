@@ -7,7 +7,9 @@
       <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
         <h3>
           Name: {{event.name}}
-          <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
+          <button class="btn-xs btn-primary fa fa-angle-double-down" ng-show="!divShow" ng-click="divShow = !divShow"></button>
+          <button class="btn-xs btn-primary fa fa-angle-double-up" ng-show="divShow" ng-click="divShow = !divShow"></button>
+
           <h3>
             <div ng-show="divShow">
 
@@ -20,7 +22,7 @@
       </ol>
   </div>
   <div class="panel-footer">
-    <button class="btn btn-primary" ng-click="$ctrl.incrementLimit()"> show more </button>
-    <button class="btn btn-primary" ng-click="$ctrl.decrementLimit()"> show less </button>
+    <button class="btn btn-primary fa fa-caret-down" ng-if="$ctrl.limitReached" ng-click="$ctrl.incrementLimit()"></button>
+    <button class="btn btn-primary fa fa-caret-up" ng-if="$ctrl.limitReached" ng-click="$ctrl.decrementLimit()"></button>
   </div>
 </div>
