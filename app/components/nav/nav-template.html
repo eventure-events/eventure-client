@@ -17,7 +17,7 @@
       </form>
 
       <button type="button" ng-if="$ctrl.userInfo.isLoggedIn" ng-click="$ctrl.userLogOut()" class="btn btn-default navbar-right log-out-btn"> Log-out </button>
-      <h5 class="navbar-text navbar-right" ng-if="$ctrl.userInfo.isLoggedIn"> Signed in as {{ $ctrl.userInfo.user.username }} <img src="{{$ctrl.userInfo.user.profilePic}}" max-width="150px" max-height="150px"></h5>
+      <h5 class="navbar-text navbar-right" ng-if="$ctrl.userInfo.isLoggedIn"> Signed in as {{ $ctrl.userInfo.user.username }} <img ng-src="{{$ctrl.userInfo.user.profilePic}}" max-width="150px" max-height="150px"></h5>
 
     </ul>
   </div>

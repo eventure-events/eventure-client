@@ -4,9 +4,12 @@
 
     <ul class="list-group">
       <li class="list-group-item"> Event name: {{ $ctrl.currentEvent.name }} </li>
-      <li ng-if="$ctrl.currentEvent.eventPic" class="list-group-item"> <img src="{{ $ctrl.currentEvent.eventPic }}" class="event-photo"></li>
+      <li ng-if="$ctrl.currentEvent.eventPic" class="list-group-item"> <img ng-src="{{ $ctrl.currentEvent.eventPic }}" class="event-photo"></li>
       <li class="list-group-item"> Event location: {{ $ctrl.currentEvent.location }} </li>
       <li class="list-group-item"> Event description: {{ $ctrl.currentEvent.description }} </li>
+      <li class="list-group-item"> Event Date: {{ $ctrl.currentEvent.date }} </li>
+      <li class="list-group-item"> Event Start Time: {{ $ctrl.currentEvent.startTime }} </li>
+      <li class="list-group-item"> Event End Time: {{ $ctrl.currentEvent.endTime }} </li>
     </ul>
   </div>
 </div>
