@@ -16,10 +16,13 @@
                 <h3 style="display:inline-block; padding-left:10px;"> Event name: {{ event.name }} </h3>
               </div>
               <ul class="list-group" ng-show="showDiv">
+                <li class="list-group-item"> <img ng-src="{{ event.eventPic }}" class="eventPic"> </li>
                 <li class="list-group-item"> Location: {{ event.location }} </li>
                 <li class="list-group-item"> Description: {{ event.description }} </li>
                 <li class="list-group-item"> Visibility: {{ event.visibility }} </li>
-                <li class="list-group-item"> _Id: {{ event._id }} </li>
+                <li class="list-group-item"> Date: {{ $ctrl.currentEvent.date }} </li>
+                <li class="list-group-item"> Start Time: {{ $ctrl.currentEvent.startTime }} </li>
+                <li class="list-group-item"> End Time: {{ $ctrl.currentEvent.endTime }} </li>
               </ul>
             </div>
 
@@ -36,6 +39,9 @@
         </div>
         <div class="panel-body">
 
+          <div>
+            <img class="profilePic" src="{{$ctrl.userInfo.user.profilePic}}">
+          </div>
           <p>
             Name: {{ $ctrl.userInfo.user.name }}
           </p>
