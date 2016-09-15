@@ -22,15 +22,18 @@
 
       <div class="col-sm-4">
         <div class="form-group">
-          <label for="date">Date:</label>
-          <input required class="form-control" placeholder="Date" value="date" type="date" name="event-date" ng-model="$ctrl.event.date">
-          <br>
-          <label for="start-start">Start Time:</label>
+          <label for="start-date">Start Date:</label>
+          <input required class="form-control" placeholder="Date" value="date" type="date" name="start-date" ng-model="$ctrl.event.startDate">
+          <br />
+          <label for="start-time">Start Time:</label>
           <input required class="form-control" value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime">
-          <br>
-          <label for="start-start">End Time:</label>
+          <br />
+          <label for="end-date">End Date:</label>
+          <input required class="form-control" placeholder="Date" value="date" type="date" name="end-date" ng-model="$ctrl.event.endDate">
+          <br />
+          <label for="end-time">End Time:</label>
           <input required class="form-control" value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime">
-          <br>
+          <br />
         </div>
       </div>
     </div>
