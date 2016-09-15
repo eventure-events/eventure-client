@@ -41,8 +41,6 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     userService.userLogOut();
     eventService.publicEvents()
     .then((ev) => {
-      dataService.events.splice(0, dataService.events.length);
-
       ev.forEach((item) => {
         dataService.events.push(item);
       });
