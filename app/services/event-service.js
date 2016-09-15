@@ -115,7 +115,8 @@ function eventService($http, $log, $q, dataService) {
   service.deleteEvent = function(eventData, auth) {
     return $q(function(resolve, reject) {
       $log.debug('deleting an event');
-      $http.delete(baseUrl + '/' + eventData._id, auth)
+
+      $http.delete(baseUrl + '/' + eventData, auth)
         .then((res) => {
           $log.debug('success! event deleted: ', res.data);
           resolve(res.data);
