@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = exports = (app) => {
-  app.controller('MapController', ['$log', 'dataService', 'eventService', 'userService', MapController]);
+  app.controller('MapController', ['$log', '$window', 'dataService', 'eventService', 'userService', MapController]);
 };
 
-function MapController($log, dataService, eventService, userService) {
+function MapController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
 
   let localStorageUser;
