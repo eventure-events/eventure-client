@@ -10,4 +10,4 @@ This repo is the front-end of our application. Find the back-end [here](https://
 - [Shane Henning](https://github.com/shanehenning)  
 - [Jeff Gebhardt](https://github.com/jeffgebhardt)  
 
-#### Check out our application at:  **[Eventure.site](eventure.site)**
+#### Check out our application at:  **[Eventure.site](https://eventure.site)**
