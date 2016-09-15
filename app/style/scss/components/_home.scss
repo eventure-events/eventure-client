@@ -11,6 +11,33 @@
   width: 100%;
   margin-left: 1em;
 }
+
+.about {
+  width: 60%;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  h2 {
+    font-size: 40px;
+  }
+  p {
+    font-size: 24px;
+  }
+  ul {
+    margin: 0 auto;
+    list-style-type: none;
+    li {
+      padding: 5px;
+      font-size: 20px;
+      i {
+        font-size: 40px;
+        text-align: left;
+      }
+    }
+  }
+}
+
 @media (min-width: 768px) {
   #map{
     position: absolute;
