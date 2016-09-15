@@ -1,7 +1,11 @@
-<h2>Event Profile</h2>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"> Event Info </div>
 
-<h3>{{$ctrl.currentEvent.name}}</h3>
-<h5>{{$ctrl.currentEvent.location}}</h5>
-<p>{{$ctrl.currentEvent.description}}</p>
-<br/>
-<h6>Event Creator: <a href="#/profile/{{$ctrl.currentEvent.username}}">{{$ctrl.currentEvent.username}}</a></h6>
+    <ul class="list-group">
+      <li class="list-group-item"> Event name: {{ $ctrl.currentEvent.name }} </li>
+      <li class="list-group-item"> Event location: {{ $ctrl.currentEvent.location }} </li>
+      <li class="list-group-item"> Event description: {{ $ctrl.currentEvent.description }} </li>
+    </ul>
+  </div>
+</div>
