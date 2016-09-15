@@ -1,10 +1,9 @@
 <div class="panel-primary">
   <div class="panel-heading">
-    <button ng-click="$ctrl.getEvents()" type="button" class="btn btn-default">Get Events</button>
   </div>
   <div class="panel-body">
 
-    <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
+    <ol type="A" class="event-list">
       <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
         <h3>
           Name: {{event.name}}
