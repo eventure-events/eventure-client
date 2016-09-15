@@ -1,25 +1,27 @@
-<h2> Events </h2>
+<div class="panel-primary">
+  <div class="panel-heading">
+    <button ng-click="$ctrl.getEvents()" type="button" class="btn btn-default">Get Events</button>
+  </div>
+  <div class="panel-body">
 
+    <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
+      <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
+        <h3>
+          Name: {{event.name}}
+          <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
+          <h3>
+            <div ng-show="divShow">
 
+              <h5> Location: {{ event.location }}</h5>
+              <h5> Description: {{ event.description }}</h5>
+              <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
 
-<button ng-click="$ctrl.getEvents()" type="button" name="button">Get Events</button>
-
-
-
-<ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
-  <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
-    <h3>
-    Name: {{event.name}}
-    <button class="btn btn-primary" ng-click="divShow = !divShow"> Expand </button>
-  <h3>
-    <div ng-show="divShow">
-
-      <h5> Location: {{ event.location }}</h5>
-      <h5> Description: {{ event.description }}</h5>
-      <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
-
-    </div>
-  </li>
-</ol>
-<button class="btn btn-default" ng-click="$ctrl.incrementLimit()"> show more </button>
-<button class="btn btn-default" ng-click="$ctrl.decrementLimit()"> show less </button>
+          </div>
+        </li>
+      </ol>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-primary" ng-click="$ctrl.incrementLimit()"> show more </button>
+    <button class="btn btn-primary" ng-click="$ctrl.decrementLimit()"> show less </button>
+  </div>
+</div>
