@@ -1,3 +1,17 @@
 .corner{
   @include right;
 }
+
+.profilePic {
+  max-width: 200px;
+}
+
+.eventPic {
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .eventPic {
+    max-width: 400px;
+  }
+}
