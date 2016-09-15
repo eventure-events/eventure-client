@@ -1,5 +1,11 @@
 <h2> Events </h2>
 
+
+
+<button ng-click="$ctrl.getEvents()" type="button" name="button">Get Events</button>
+
+
+
 <ol type="A" ng-init="$ctrl.listEvents()" class="event-list">
   <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
     <h3>
