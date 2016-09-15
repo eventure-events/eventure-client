@@ -32,12 +32,22 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
       });
   };
 
-  // this.deleteEvent = function(username) {
-  //   eventService.deleteEvent(id)
-  //     .then(() => {
-  //
-  //     });
-  // };
+  this.deleteEvent = function(id) {
+    $log.log('delete id: ', id);
+    this.token = userService.getToken();
+    this.config = {
+      'headers': {
+        'Authorization': 'Bearer ' + this.token,
+      },
+    };
+    $log.log('Delete config: ', this.config);
+    eventService.deleteEvent(id, this.config)
+      .then((deletedEvent) => {
+        dataService.yourEvents = dataService.yourEvents.filter((obj) => {
+          return obj._id !== deletedEvent._id;
+        });
+      });
+  };
 
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
