@@ -13,6 +13,7 @@
           <h3>
             <div ng-show="divShow">
 
+<<<<<<< HEAD
               <h4> {{ event.location }}</h4>
               <h4> {{ event.description }}</h4>
               <p> {{ event.date }}</p>
@@ -26,6 +27,26 @@
 
                   <icon title="You are following {{event.username}}" class="follow fa fa-users" ng-show="following"></icon>
                 </h5>
+
+              <br />
+
+              <ul>
+                <li ng-repeat="comment in event.comments">
+                  <p>
+                    {{comment}}
+                  </p>
+                </li>
+              </ul>
+
+              <form class="form" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
+                <div class="form-group">
+                  <label for="comment"> Add a new comment </label>
+                  <input required class="form-control" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+
+>>>>>>> 9ebfeb88eb7696157d5df792b0d2237065af2909
 
           </div>
         </li>

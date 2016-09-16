@@ -5,11 +5,15 @@ module.exports = exports = (app) => {
 };
 
 function NavController($log, $anchorScroll, userService, dataService, eventService, $location, $window) {
+  if (!$window.localStorage.splashPage) {
+    $location.path('/about');
+    $window.localStorage.setItem('splashPage', 'true');
+  }
+
   this.userInfo = dataService.userInfo;
   this.events = dataService.events;
 
   if (userService.getToken()) {
-
     let localStorageUser = JSON.parse($window.localStorage.user);
 
     if (userService.getToken() !== '') {
@@ -82,5 +86,4 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     });
     $location.path('/');
   };
-
 }
