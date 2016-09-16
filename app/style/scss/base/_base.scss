@@ -1,31 +1,5 @@
-* {
-  border-radius: 0 !important;
-}
-
 body {
-    padding-top: 5.2em;
-    background-color: $light;
-    font-family: $font-serif;
+    padding-top: 70px;
 }
 
-
-h1, h2, h3, h4, h5, h6, a, ol {
-  font-family: $font-sans;
-}
-
-p {
-  font-family: $font-serif;
-}
-
-a:hover{
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.left{
-  float: left;
-}
-
-.right{
-  float: right;
-}
+.angular-google-map-container {height: 400px;}

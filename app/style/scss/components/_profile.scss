@@ -1,5 +1,5 @@
 .corner{
-  float: right;
+  @include right;
 }
 
 .profilePic {

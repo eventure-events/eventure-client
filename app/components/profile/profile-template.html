@@ -13,16 +13,15 @@
                 <button type="button" ng-click="showDiv = !showDiv" ng-show="showDiv" class="btn btn-primary fa fa-angle-double-up"> </button>
 
                 <a ng-click="$ctrl.deleteEvent(event._id)" class="corner fa fa-times"> </a>
-                <h3 style="display:inline-block; padding-left:10px;"> {{ event.name }} </h3>
+                <h3 style="display:inline-block; padding-left:10px;"> Event name: {{ event.name }} </h3>
               </div>
               <ul class="list-group" ng-show="showDiv">
                 <li class="list-group-item"> <img ng-src="{{ event.eventPic }}" class="eventPic"> </li>
-                <li class="list-group-item"> {{ event.location }} </li>
+                <li class="list-group-item"> Location: {{ event.location }} </li>
                 <li class="list-group-item"> Description: {{ event.description }} </li>
                 <li class="list-group-item"> Visibility: {{ event.visibility }} </li>
-                <li class="list-group-item"> {{ $ctrl.currentEvent.date }} </li>
-                <li class="list-group-item"> Start Time: {{ $ctrl.currentEvent.startTime }} </li>
-                <li class="list-group-item"> End Time: {{ $ctrl.currentEvent.endTime }} </li>
+                <li class="list-group-item"> Event Start: {{ event.eventStart }}</li>
+                <li class="list-group-item"> Event End: {{ event.eventEnd }} </li>
               </ul>
             </div>
 

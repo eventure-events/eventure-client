@@ -34,8 +34,6 @@ function ListController($rootScope, eventService, dataService, userService) {
   $rootScope.$on('viewportEvents', () => {
     if (this.events) {
       this.events = dataService.viewportEvents;
-      this.limit = limitStep;
-      this.limitReached = false;
     }
     $rootScope.$digest();
   });
