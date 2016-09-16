@@ -9,6 +9,7 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     $location.path('/about');
     $window.localStorage.setItem('splashPage', 'true');
   }
+
   this.userInfo = dataService.userInfo;
   this.events = dataService.events;
 
@@ -23,6 +24,8 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
         this.yourEvents = dataService.yourEvents = ev;
       });
     }
+  }
+
   this.getYourEvents = function(username) {
     eventService.userEvents(username)
       .then((userEvents) => {
@@ -83,6 +86,4 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     });
     $location.path('/');
   };
-  }
-
 }
