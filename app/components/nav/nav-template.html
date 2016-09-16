@@ -4,9 +4,9 @@
       <li role="presentation">
         <a href="#/"> <img src="../../resources/logo-full.png" /> </a>
       </li>
-      <li class="navLink" role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/profile"> Profile </a></li>
-      <li class="navLink" role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/event"> Create Event </a></li>
-      <li class="navLink" role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn"><a href="#/signup"> Sign-up </a></li>
+      <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/profile"> Profile </a></li>
+      <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/event"> Create Event </a></li>
+      <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn"><a href="#/signup"> Sign-up </a></li>
 
       <form class="navbar-form navbar-right" ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
         <div class="form-group">
