@@ -4,7 +4,7 @@
   <div class="panel-body">
 
     <ol type="A" class="event-list">
-      <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
+      <li ng-repeat="event in $ctrl.events">
         <h3>
           Name: {{event.name}}
           <button class="btn-xs btn-primary fa fa-angle-double-down" ng-show="!divShow" ng-click="divShow = !divShow"></button>
