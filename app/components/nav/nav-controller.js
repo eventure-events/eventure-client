@@ -5,11 +5,15 @@ module.exports = exports = (app) => {
 };
 
 function NavController($log, $anchorScroll, userService, dataService, eventService, $location, $window) {
+  if (!$window.localStorage.splashPage) {
+    $location.path('/about');
+    $window.localStorage.setItem('splashPage', 'true');
+  }
+
   this.userInfo = dataService.userInfo;
   this.events = dataService.events;
 
   if (userService.getToken()) {
-
     let localStorageUser = JSON.parse($window.localStorage.user);
 
     if (userService.getToken() !== '') {
@@ -32,12 +36,25 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
       });
   };
 
-  // this.deleteEvent = function(username) {
-  //   eventService.deleteEvent(id)
-  //     .then(() => {
-  //
-  //     });
-  // };
+  this.deleteEvent = function(id) {
+    $log.log('delete id: ', id);
+    this.token = userService.getToken();
+    this.config = {
+      'headers': {
+        'Authorization': 'Bearer ' + this.token,
+      },
+    };
+    $log.log('Delete config: ', this.config);
+    eventService.deleteEvent(id, this.config)
+      .then((deletedEvent) => {
+        dataService.yourEvents.forEach((item, index) => {
+          if (item._id === deletedEvent._id) {
+            dataService.yourEvents.splice(index, 1);
+            return;
+          }
+        });
+      });
+  };
 
   this.userLogIn = function(userInfo) {
     userService.userSignIn(userInfo)
@@ -69,5 +86,4 @@ function NavController($log, $anchorScroll, userService, dataService, eventServi
     });
     $location.path('/');
   };
-
 }

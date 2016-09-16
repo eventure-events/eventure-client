@@ -19,7 +19,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './test/*-test.js',
+      'test/index.js',
     ],
 
 
@@ -33,7 +33,7 @@ module.exports = function(config) {
     webpack: webpackConfig,
     preprocessors: {
       'app/entry.js': ['webpack', 'sourcemap'],
-      'test/*-test.js': ['webpack'],
+      'test/index.js': ['webpack'],
     },
 
 

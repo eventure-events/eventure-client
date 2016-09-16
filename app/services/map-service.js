@@ -10,7 +10,6 @@ function mapService($rootScope, dataService) {
   service.map;
   service.labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   service.labelIndex = 0;
-  service.you = require('../resources/you.png');
   dataService.viewportEvents = [];
 
 
@@ -38,11 +37,16 @@ function mapService($rootScope, dataService) {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        new google.maps.Marker({
+        let marker = new google.maps.Marker({
           position: pos,
           map: service.map,
-          icon: service.you,
-          title:'your location',
+          title: 'your location',
+        });
+        let infoWindow = new google.maps.InfoWindow({
+          content: 'This is you!',
+        });
+        marker.addListener('click', function() {
+          infoWindow.open(service.map, marker);
         });
         service.map.setCenter(pos);
       }, function() {
@@ -55,9 +59,7 @@ function mapService($rootScope, dataService) {
     service.mapIdleListener(service.map);
   };
 
-
-
-  service.mapIdleListener = function(map){
+  service.mapIdleListener = function(map) {
     google.maps.event.addListener(map, 'idle', function() {
       service.labelIndex = 0;
       dataService.viewportEvents = [];

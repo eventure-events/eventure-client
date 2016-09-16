@@ -15,7 +15,28 @@
 
               <h5> Location: {{ event.location }}</h5>
               <h5> Description: {{ event.description }}</h5>
+              <!-- <h5> Date: {{ event.date }}</h5> -->
+              <h5> Event Start: {{ event.eventStart }}</h5>
+              <h5> End End: {{ event.eventEnd }}</h5>
               <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
+              <br />
+
+              <ul>
+                <li ng-repeat="comment in event.comments">
+                  <p>
+                    {{comment}}
+                  </p>
+                </li>
+              </ul>
+
+              <form class="form" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
+                <div class="form-group">
+                  <label for="comment"> Add a new comment </label>
+                  <input required class="form-control" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+
 
           </div>
         </li>
