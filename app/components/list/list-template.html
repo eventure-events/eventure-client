@@ -21,7 +21,8 @@
               <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
               <br />
 
-              <ul>
+              <div class="comment-wrapper">
+              <ul class="comments">
                 <li ng-repeat="comment in event.comments">
                   <p>
                     {{comment}}
@@ -31,11 +32,12 @@
 
               <form class="form" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
                 <div class="form-group">
-                  <label for="comment"> Add a new comment </label>
+                  <label for="comment" class="comment"> Add a new comment </label>
                   <input required class="form-control" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit</button>
               </form>
+            </div>
 
 
           </div>
