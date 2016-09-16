@@ -6,19 +6,28 @@
     <ol type="A" class="event-list">
       <li ng-repeat="event in $ctrl.events | limitTo:$ctrl.limit">
         <h3>
-          Name: {{event.name}}
-          <button class="btn-xs btn-primary fa fa-angle-double-down" ng-show="!divShow" ng-click="divShow = !divShow"></button>
-          <button class="btn-xs btn-primary fa fa-angle-double-up" ng-show="divShow" ng-click="divShow = !divShow"></button>
+          {{event.name}}
+          <a class="details fa fa-caret-down" ng-show="!divShow" ng-click="divShow = !divShow"></a>
+          <a class="details fa fa-caret-up" ng-show="divShow" ng-click="divShow = !divShow"></a>
 
           <h3>
             <div ng-show="divShow">
 
-              <h5> Location: {{ event.location }}</h5>
-              <h5> Description: {{ event.description }}</h5>
-              <!-- <h5> Date: {{ event.date }}</h5> -->
-              <h5> Event Start: {{ event.eventStart }}</h5>
-              <h5> End End: {{ event.eventEnd }}</h5>
-              <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
+<<<<<<< HEAD
+              <h4> {{ event.location }}</h4>
+              <h4> {{ event.description }}</h4>
+              <p> {{ event.date }}</p>
+              <p> Start Time: {{ event.startTime }}</p>
+              <p> End Time: {{ event.endTime }}</p> <br/>
+              <h5> Event Creator: {{event.username}}
+                <h5 class="follow" ng-show="!following">
+                  <a ng-click="$ctrl.followUser(event.username); following='true'">
+                    Follow me!
+                  </a></h5>
+
+                  <icon title="You are following {{event.username}}" class="follow fa fa-users" ng-show="following"></icon>
+                </h5>
+
               <br />
 
               <ul>
@@ -37,6 +46,7 @@
                 <button class="btn btn-primary" type="submit">Submit</button>
               </form>
 
+>>>>>>> 9ebfeb88eb7696157d5df792b0d2237065af2909
 
           </div>
         </li>
