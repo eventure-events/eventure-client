@@ -17,6 +17,8 @@
           <label for="location">Location</label>
           <input required class="form-control" placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
           <br>
+          <label for="start-start">Picture</label>
+          <input class="form-control" placeholder="Photo URL" ng-model="$ctrl.event.eventPic" type="text" name="name">
         </div>
       </div>
 
@@ -43,15 +45,6 @@
         <div class="form-group">
           <label for="start-start">Description</label>
           <textarea required class="form-control" placeholder="Description" ng-model="$ctrl.event.description" rows="2" cols="100" name="description"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="form-group">
-          <label for="start-start">Picture</label>
-          <input class="form-control" placeholder="Photo URL" ng-model="$ctrl.event.eventPic" type="text" name="name">
         </div>
       </div>
     </div>
