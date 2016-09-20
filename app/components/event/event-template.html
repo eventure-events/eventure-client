@@ -1,55 +1,55 @@
-<div class="container">
-  <form class="form" ng-submit="edit = true; $ctrl.createEvent($ctrl.event)">
+<div class="">
+  <form class="" ng-submit="edit = true; $ctrl.createEvent($ctrl.event)">
 
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="form-group">
+    <div class="">
+      <div class="">
+        <div class="">
           <label for="name">Name</label>
-          <input required class="form-control" placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
+          <input required class="" placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
           <br>
           <label for="visibility">Privacy</label>
-          <select required class="form-control" ng-model="$ctrl.event.visibility" name="visibility">
+          <select required class="" ng-model="$ctrl.event.visibility" name="visibility">
             <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
             <option value="private">private</option>
             <option value="public">public</option>
           </select>
           <br>
           <label for="location">Location</label>
-          <input required class="form-control" placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
+          <input required class="" placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
           <br>
           <label for="start-start">Picture</label>
-          <input class="form-control" placeholder="Photo URL" ng-model="$ctrl.event.eventPic" type="text" name="name">
+          <input class="" placeholder="Photo URL" ng-model="$ctrl.event.eventPic" type="text" name="name">
         </div>
       </div>
 
-      <div class="col-sm-4">
-        <div class="form-group">
+      <div class="">
+        <div class="">
           <label for="start-date">Start Date:</label>
-          <input required class="form-control" placeholder="Date" value="date" type="date" name="start-date" ng-model="$ctrl.event.startDate">
+          <input required class="" placeholder="Date" value="date" type="date" name="start-date" ng-model="$ctrl.event.startDate">
           <br />
           <label for="start-time">Start Time:</label>
-          <input required class="form-control" value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime">
+          <input required class="" value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime">
           <br />
           <label for="end-date">End Date:</label>
-          <input required class="form-control" placeholder="Date" value="date" type="date" name="end-date" ng-model="$ctrl.event.endDate">
+          <input required class="" placeholder="Date" value="date" type="date" name="end-date" ng-model="$ctrl.event.endDate">
           <br />
           <label for="end-time">End Time:</label>
-          <input required class="form-control" value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime">
+          <input required class="" value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime">
           <br />
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="form-group">
+    <div class="">
+      <div class="">
+        <div class="">
           <label for="start-start">Description</label>
-          <textarea required class="form-control" placeholder="Description" ng-model="$ctrl.event.description" rows="2" cols="100" name="description"></textarea>
+          <textarea required class="" placeholder="Description" ng-model="$ctrl.event.description" rows="2" cols="100" name="description"></textarea>
         </div>
       </div>
     </div>
 
-    <button type="submit" name="button" class="btn btn-primary"> Create </button>
+    <button type="submit" name="button" class=""> Create </button>
 
   </form>
 </div>
