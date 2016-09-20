@@ -1,3 +1,49 @@
-.navbar img {
+nav{
+  margin: 0;
+  padding: .5em;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+
+  ul{
+    width: 50%;
+    display: inline;
+  }
+
+  ul li{
+    margin-left: 1em;
+    display: inline;
+    font-size: 14pt;
+    color: $tertiary;
+    font-family: $font-sans;
+  }
+
+
+  .user{
     height: 20pt;
+    float: right;
+    padding-top:.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    display: inline;
+    h5{
+      display: inline;
+      img{
+        vertical-align: middle;
+        margin-left: .3em;
+        margin-right: 1.5em;
+        padding: 0;
+      }
+    }
+    a{
+      font-size: 10pt;
+      cursor: pointer;
+    }
+  }
+}
+
+
+nav img {
+  height: 20pt;
+  margin-right: 2em;
 }

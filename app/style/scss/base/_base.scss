@@ -1,1 +1,18 @@
-.angular-google-map-container {height: 400px;}
+body{
+  font-family: $font-serif;
+  background-color: $light;
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: $font-sans;
+  }
+
+
+  a{
+    text-decoration: none;
+  }
+
+  a:visited{
+    color: currentColor;
+  }
+
+}

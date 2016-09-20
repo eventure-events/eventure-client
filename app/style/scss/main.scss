@@ -1,12 +1,13 @@
 @import '../vendor/normalize_scss/_normalize';
 @include normalize();
-@import "../vendor/bootstrap/stylesheets/_bootstrap";
+// @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
 
 @import "./components/_header.scss";
 
 @import "./utils/_mixins.scss";
+@import "./utils/_icons.scss";
 @import "./theme/_theme.scss";
 
 

@@ -1,24 +1,28 @@
-<nav class="">
-  <div class="">
-    <ul class="">
-      <li role="presentation">
-        <a href="#/"> <img src="../../resources/logo-full.png" /> </a>
-      </li>
-      <li role="" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/profile"> Profile </a></li>
-      <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a href="#/event"> Create Event </a></li>
-      <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn"><a href="#/signup"> Sign-up </a></li>
+<nav>
+  <ul>
+    <li role="presentation">
+      <a href="#/"> <img src="../../resources/logo-full.png" /> </a>
+    </li>
+    <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a class="icon fa-user" href="#/profile">Profile</a></li>
+    <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn"><a class="icon fa-calendar-plus-o" href="#/event">Create Event</a></li>
+    <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn"><a href="#/signup">Sign-up</a></li>
+  </ul>
 
-      <form class="" ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
-        <div class="">
-          <input required type="text" class="" ng-model="$ctrl.user.username" placeholder="Username...">
-          <input required type="password" class="" ng-model="$ctrl.user.password" placeholder="Password...">
-        </div>
-        <button type="submit" class=""> Sign-in </button>
-      </form>
+  <div class="user">
 
-      <button type="button" ng-if="$ctrl.userInfo.isLoggedIn" ng-click="$ctrl.userLogOut()" class=""> Log-out </button>
-      <h5 class="" ng-if="$ctrl.userInfo.isLoggedIn"> Signed in as {{ $ctrl.userInfo.user.username }} <img ng-src="{{$ctrl.userInfo.user.profilePic}}" max-width="150px" max-height="150px"></h5>
+    <form ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
+      <input required type="text" class="" ng-model="$ctrl.user.username" placeholder="Username...">
+      <input required type="password" class="" ng-model="$ctrl.user.password" placeholder="Password...">
+      <button type="submit" class=""> Sign-in </button>
+    </form>
 
-    </ul>
+    <h5 class="" ng-if="$ctrl.userInfo.isLoggedIn">
+      <a href="#/profile">{{ $ctrl.userInfo.user.username }}
+        <img ng-src="{{$ctrl.userInfo.user.profilePic}}" max-width="150px" max-height="150px">
+      </a>
+      <a class="sign-out-icon" ng-click="$ctrl.userLogOut()">Sign Out </a>
+    </h5>
+
+
   </div>
 </nav>
