@@ -40,6 +40,9 @@ eventureApp.config(['$routeProvider', function($route) {
     .when('/signup', {
       template: require('./html/signup.html'),
     })
+    .when('/signin', {
+      template: require('./html/signin.html'),
+    })
     .when('/about', {
       template: require('./html/about.html'),
     })

@@ -1,21 +1,8 @@
-<div class="">
-  <div class="">
-    <div class="">
-      <form class="" ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
-        <div class="">
-          <label for="name"> Name: </label>
-          <input required class="" type="text" placeholder="name" ng-model="$ctrl.user.name"></input>
-          <label for="username"> Username: </label>
-          <input required class="" type="text" placeholder="username" ng-model="$ctrl.user.username"></input>
-          <label for="email"> Email: </label>
-          <input required class="" type="email" placeholder="email" ng-model="$ctrl.user.email"></input>
-          <label for="password"> Password: </label>
-          <input required class="" type="password" placeholder="password" ng-model="$ctrl.user.password"></input>
-          <label for="profilePic"> Profile Picture: </label>
-          <input class="" type="text" placeholder="url" ng-model="$ctrl.user.profilePic"></input>
-        </div>
-        <button class="" type="submit"> Sign Up </button>
-      </form>
-    </div>
-  </div>
-</div>
+<form class="" ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
+  <input required class="" type="text" placeholder=" Name" ng-model="$ctrl.user.name"></input>
+  <input required class="" type="text" placeholder=" Username" ng-model="$ctrl.user.username"></input>
+  <input required class="" type="email" placeholder=" Email" ng-model="$ctrl.user.email"></input>
+  <input required class="" type="password" placeholder=" Password" ng-model="$ctrl.user.password"></input>
+  <input class="" type="text" placeholder=" Url for Profile Picture" ng-model="$ctrl.user.profilePic"></input>
+  <button class="" type="submit"> Sign Up </button>
+</form>

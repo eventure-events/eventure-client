@@ -1,0 +1,9 @@
+<form ng-submit="$ctrl.userLogIn($ctr.user)" ng-model="$ctrl.user">
+  <input type="text" name="username" placeholder=" Username" ng-model="$ctrl.user.username">
+  <input type="password" name="password" placeholder=" Password" ng-model=$ctrl.user.password>
+  <button class="sign-in-icon" type="submit" name="signin"></button>
+</form>
+
+<p>
+  Don't yet have an account? <a href="#/signup"> Make one here! </a>
+</p>

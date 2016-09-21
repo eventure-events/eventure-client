@@ -1,51 +1,45 @@
-<div class="">
-  <div class="">
-  </div>
-  <div class="">
+<div class="list-component-header">
+  <h1>Events in Map Area</h1>
 
-    <ol type="A" class="">
-      <li ng-repeat="event in $ctrl.events">
-        <h3>
-          Name: {{event.name}}
-          <button class=" fa fa-angle-double-down" ng-show="!divShow" ng-click="divShow = !divShow"></button>
-          <button class=" fa fa-angle-double-up" ng-show="divShow" ng-click="divShow = !divShow"></button>
+  <ol ng-if="$ctrl.events.length" type="A">
+    <li ng-repeat="event in $ctrl.events">
+      <h3>
+      {{event.name}}
+      <icon class="icon fa-caret-down" ng-show="!divShow" ng-click="divShow = !divShow"></icon>
+      <icon class="icon fa-caret-up" ng-show="divShow" ng-click="divShow = !divShow"></icon>
+    </h3>
 
-          <h3>
-            <div ng-show="divShow">
+      <div ng-show="divShow">
 
-              <h5> Location: {{ event.location }}</h5>
-              <h5> Description: {{ event.description }}</h5>
-              <!-- <h5> Date: {{ event.date }}</h5> -->
-              <h5> Event Start: {{ event.eventStart }}</h5>
-              <h5> End End: {{ event.eventEnd }}</h5>
-              <h5> Event Creator: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
-              <br />
+        <h5> {{ event.location }}</h5>
+        <h5> {{ event.description }}</h5>
+        <!-- <h5> Date: {{ event.date }}</h5> -->
+        <h5> Start: {{ event.eventStart }}</h5>
+        <h5> End: {{ event.eventEnd }}</h5>
+        <h5> Created By: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
+        <br />
 
-              <div class="comment-wrapper">
-              <ul class="comments">
-                <li ng-repeat="comment in event.comments">
-                  <p>
-                    {{comment}}
-                  </p>
-                </li>
-              </ul>
+        <div class="comment-wrapper">
+          <ul class="comments">
+            <li ng-repeat="comment in event.comments">
+              <p>
+                {{comment}}
+              </p>
+            </li>
+          </ul>
 
-              <form class="" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
-                <div class="">
-                  <label for="comment" class="comment"> Add a new comment </label>
-                  <input required class="" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
-                </div>
-                <button class="" type="submit">Submit</button>
-              </form>
-            </div>
+          <form class="" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
+            <label for="comment" class="comment"> Add a new comment </label>
+            <input required class="" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
+            <button class="" type="submit">Submit</button>
+          </form>
+        </div>
 
-
-          </div>
-        </li>
-      </ol>
-  </div>
-  <div class="">
-    <button class=" fa fa-caret-down" ng-if="$ctrl.limitReached" ng-click="$ctrl.incrementLimit()"></button>
-    <button class=" fa fa-caret-up" ng-if="$ctrl.limitReached" ng-click="$ctrl.decrementLimit()"></button>
-  </div>
+      </div>
+    </li>
+  </ol>
+  <!-- <div class="">
+  <button class=" fa fa-caret-down" ng-if="$ctrl.limitReached" ng-click="$ctrl.incrementLimit()"></button>
+  <button class=" fa fa-caret-up" ng-if="$ctrl.limitReached" ng-click="$ctrl.decrementLimit()"></button>
+</div> -->
 </div>
