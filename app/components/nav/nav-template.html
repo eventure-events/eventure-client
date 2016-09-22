@@ -9,27 +9,28 @@
 
   <div class="user">
 
-    <form class="screen-large" ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user)">
+    <form class="screen-large" ng-if="!$ctrl.userInfo.isLoggedIn" ng-submit="$ctrl.userLogIn($ctrl.user); $ctrl.user = null">
       <input required type="text" class="" ng-model="$ctrl.user.username" placeholder=" Username">
       <input required type="password" class="" ng-model="$ctrl.user.password" placeholder=" Password">
       <button type="submit" class="sign-in-icon"> Sign-in </button>
     </form>
 
-    <ul ng-if="$ctrl.userInfo.isLoggedIn">
+    <ul>
       <li role="presentation" ng-if="$ctrl.userInfo.isLoggedIn">
         <a class="screen-small icon fa-calendar-plus-o" href="#/event"></a>
       </li>
       <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn">
-        <a class="screen-small" href="#/signup"></a>
+        <a class="screen-small icon fa-user-plus" href="#/signup"></a>
+      </li>
+      <li role="presentation" ng-if="!$ctrl.userInfo.isLoggedIn">
+        <a class="screen-small sign-in-icon" href="#/signin"></a>
       </li>
 
-      <li>
+
+      <li ng-if="$ctrl.userInfo.isLoggedIn">
         <a href="#/profile">{{ $ctrl.userInfo.user.username }}
           <img ng-src="{{$ctrl.userInfo.user.profilePic}}" max-width="150px" max-height="150px">
         </a>
-      </li>
-      <li>
-        <a class="screen-large sign-out-icon" ng-click="$ctrl.userLogOut()">Sign Out </a>
       </li>
     </ul>
     <!-- <h5 ng-if="$ctrl.userInfo.isLoggedIn">

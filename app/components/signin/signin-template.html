@@ -1,9 +1,15 @@
-<form ng-submit="$ctrl.userLogIn($ctr.user)" ng-model="$ctrl.user">
-  <input type="text" name="username" placeholder=" Username" ng-model="$ctrl.user.username">
-  <input type="password" name="password" placeholder=" Password" ng-model=$ctrl.user.password>
-  <button class="sign-in-icon" type="submit" name="signin"></button>
-</form>
+<div class="signin-form">
+  <h1>User Sign In</h1>
+  <form class="center" ng-submit="$ctrl.userLogIn($ctrl.user)" ng-model="$ctrl.user">
+    <input type="text" name="username" placeholder=" Username" ng-model="$ctrl.user.username">
+    <br/>
+    <input type="password" name="password" placeholder=" Password" ng-model=$ctrl.user.password>
+    <div class="center">
+      <button class="sign-in-icon" type="submit" name="signin">Sign In</button>
+    </div>
+  </form>
 
-<p>
-  Don't yet have an account? <a href="#/signup"> Make one here! </a>
-</p>
+  <p class="center">
+    Don't yet have an account? <a class="a" href="#/signup"> Make one here! </a>
+  </p>
+</div>

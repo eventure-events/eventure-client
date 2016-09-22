@@ -1,15 +1,26 @@
-<div class="">
-  <div class="">
-    <div class=""> Event Info </div>
+<div class="event-profile-container">
+  <h1>Event Info</h1>
+  <div class="details-line">
+  </div>
 
-    <ul class="">
-      <li class=""> Event name: {{ $ctrl.currentEvent.name }} </li>
-      <li ng-if="$ctrl.currentEvent.eventPic" class=""> <img ng-src="{{ $ctrl.currentEvent.eventPic }}" class="eventPic"></li>
-      <li class=""> Event location: {{ $ctrl.currentEvent.location }} </li>
-      <li class=""> Event description: {{ $ctrl.currentEvent.description }} </li>
-      <li class=""> Event Start: {{ $ctrl.currentEvent.eventStart }} </li>
-      <li class=""> Event End: {{ $ctrl.currentEvent.eventEnd }} </li>
-      <!-- <li class="list-group-item"> Event End Time: {{ $ctrl.currentEvent.endTime }} </li> -->
+  <h2> <span class="event-screen-small">Event Name: </span> {{ $ctrl.currentEvent.name }} </h2>
+  <div class="center">
+    <ul>
+      <li ng-if="$ctrl.currentEvent.eventPic"> <img ng-src="{{ $ctrl.currentEvent.eventPic }}"></li>
+      <li> <span class="event-screen-small">Location: </span> {{ $ctrl.currentEvent.location }} </li>
+      <li ng-if="!$ctrl.currentEvent.eventEndDate">
+        <span class="event-screen-small">Date: </span> {{ $ctrl.currentEvent.eventStartDate }}
+      </li>
+      <li ng-if="$ctrl.currentEvent.eventEndDate">
+        <span class="event-screen-small">Date: </span> {{ $ctrl.currentEvent.eventStartDate }} - {{$ctrl.currentEvent.eventEndDate}}
+      </li>
+      <li ng-if="!$ctrl.currentEvent.eventEndTime">
+        <span class="event-screen-small">Time: </span> {{ $ctrl.currentEvent.eventEndTime }} </li>
+      <li ng-if="$ctrl.currentEvent.eventEndTime">
+        <span class="event-screen-small">Time: </span> {{ $ctrl.currentEvent.eventEndTime }} - {{$ctrl.currentEvent.eventEndTime}}
+      </li>
+      <li> <span class="event-screen-small">Event Privacy: </span> {{$ctrl.currentEvent.visibility}} </li>
+      <li> <span class="event-screen-small">Description: </span> {{ $ctrl.currentEvent.description }} </li>
     </ul>
   </div>
 </div>

@@ -34,3 +34,15 @@
    vertical-align: middle;
    text-decoration:none;
 }
+
+.form-complete-icon::after{
+  content: '';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 10pt;
+   margin: 0 auto;
+   margin-left: .2em;
+   vertical-align:inherit;
+   text-decoration:none;
+}

@@ -1,43 +1,65 @@
 <div class="list-component-header">
   <h1>Events in Map Area</h1>
 
-  <ol ng-if="$ctrl.events.length" type="A">
-    <li ng-repeat="event in $ctrl.events">
-      <h3>
-      {{event.name}}
-      <icon class="icon fa-caret-down" ng-show="!divShow" ng-click="divShow = !divShow"></icon>
-      <icon class="icon fa-caret-up" ng-show="divShow" ng-click="divShow = !divShow"></icon>
-    </h3>
-
-      <div ng-show="divShow">
-
+  <ul ng-if="$ctrl.events.length">
+    <li ng-repeat="event in $ctrl.events track by $index">
+      <div class="top-left">
+        <img ng-src="{{event.eventPic}}" width="50px" height="50px">
+      </div>
+      <div class="top-right">
+        <h2 class="event-name">
+          {{event.name}}
+          <icon class="icon fa-caret-down" ng-show="!divShow" ng-click="divShow = !divShow"></icon>
+          <icon class="icon fa-caret-up" ng-show="divShow" ng-click="divShow = !divShow"></icon>
+        </h2>
+        <br/>
         <h5> {{ event.location }}</h5>
-        <h5> {{ event.description }}</h5>
-        <!-- <h5> Date: {{ event.date }}</h5> -->
-        <h5> Start: {{ event.eventStart }}</h5>
-        <h5> End: {{ event.eventEnd }}</h5>
-        <h5> Created By: {{ event.username }} | <a ng-click="$ctrl.followUser(event.username)"> Follow me! </a></h5>
-        <br />
 
-        <div class="comment-wrapper">
-          <ul class="comments">
-            <li ng-repeat="comment in event.comments">
-              <p>
-                {{comment}}
-              </p>
-            </li>
-          </ul>
-
-          <form class="" ng-submit="$ctrl.addComment(event._id, $ctrl.comment)" ng-model="$ctrl.comment">
-            <label for="comment" class="comment"> Add a new comment </label>
-            <input required class="" type="text" placeholder="comment" ng-model="$ctrl.comment.comment"></input>
-            <button class="" type="submit">Submit</button>
-          </form>
+      </div>
+      <div ng-show="divShow">
+        <div class="details-line">
         </div>
+        <div class="middle-left">
+          <span ng-if="!event.eventEndDate"> {{ event.eventStartDate }}, </span>
+          <span ng-if="event.eventEndDate"> {{ event.eventStartDate }} - {{event.eventEndDate}}, </span>
+          <span ng-if="!event.eventEndTime"> {{ event.eventStartTime}}</span>
+          <span ng-if="event.eventEndTime"> {{event.eventStartTime}} - {{event.eventEndTime}}</span>
+        </div>
+        <div class="middle-right">
+          <h5> {{ event.description }}</h5>
+          <h5> Created By: {{ event.username }}
+            <span ng-if="!followed" ng-show="$ctrl.localStorageUser.following.indexOf(event.username) === -1"> | <a ng-click="$ctrl.followUser(event.username); followed = true"> Follow me! </a></span>
+            <span ng-show="$ctrl.localStorageUser.following.indexOf(event.username) !== -1"> | You're following {{event.username}}! </a></span>
+            <span ng-if="followed"> | You're following {{event.username}}! </a></span>
+
+          </h5>
+
+        </div>
+        <div class="bottom">
+          <div class="comment-wrapper">
+            <ul class="ul-comments">
+              <li ng-repeat="comment in event.comments">
+                <p>
+                  {{comment}}
+                </p>
+              </li>
+            </ul>
+
+            <form ng-submit="$ctrl.addComment(event._id, event.comment); event.comment = null" ng-model="event.comment">
+              <input required type="text" placeholder=" Your Comment" ng-model="event.comment.comment"></input>
+              <button type="submit">Add</button>
+            </form>
+          </div>
+
+        </div>
+
+
+
+
 
       </div>
     </li>
-  </ol>
+  </ul>
   <!-- <div class="">
   <button class=" fa fa-caret-down" ng-if="$ctrl.limitReached" ng-click="$ctrl.incrementLimit()"></button>
   <button class=" fa fa-caret-up" ng-if="$ctrl.limitReached" ng-click="$ctrl.decrementLimit()"></button>

@@ -8,21 +8,22 @@ body{
   }
 
 
-  a{
+  a, button, icon{
+    color: $primary;
     text-decoration: none;
   }
-
-  a:visited{
-    color: currentColor;
+  a:hover, button:hover, icon:hover{
+    color: $primary-hover;
   }
-
-  ol{
-    list-style: upper-alpha !important;
-
+  a:active, button:active, icon:active{
+    color: $secondary;
+  }
+  a:visited, button:visited, icon:visited{
+    color: currentColor;
   }
 
 }
 
-.about, .ev-event-profile, .ev-event-component,  #map, .list-component, .ev-profile-component, .ev-signin-component, .ev-signup-component{
+.about-container, .ev-event-profile, .ev-event-component,  #map, .list-component, .ev-profile-component, .ev-event-profile-component, .ev-signin-component, .ev-signup-component{
 @include top-indent;
 }

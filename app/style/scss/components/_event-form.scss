@@ -1,0 +1,60 @@
+.event-form{
+  padding: 1em;
+  margin: 0 auto;
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.33);
+  h1{
+    margin-top: .5em;
+    text-align: center;
+  }
+  input, select, textarea{
+    margin-bottom: 1em;
+    font-family: $font-serif;
+    width: 98.5%;
+    max-width: 98.5%;
+  }
+  label{
+    display: block;
+    font-family: $font-sans;
+    font-size: 10pt;
+  }
+  input[type=radio]{
+    margin-left: .5em;
+    width: auto;
+  }
+  input[type=time], input[type=date], select{
+    max-width: 40%;
+  }
+  input, select, textarea, input[type=time], input[type=date]{
+    border: .1em solid rgba(0,19,46,.15);
+    min-height: 16pt;
+  }
+  .label-special{
+    display: inline;
+    margin-left: .5em;
+  }
+  button{
+    background: none;
+    border: none;
+    color: $primary;
+    cursor: pointer;
+  }
+  .center{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .event-form{
+    width: 80%;
+    h1{
+      font-size: 20pt;
+      margin-bottom: 1em;
+    }
+    .label-special{
+      display: block;
+    }
+  }
+
+}

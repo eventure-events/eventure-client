@@ -1,0 +1,50 @@
+.signup-form{
+    padding: 1em;
+    margin: 0 auto;
+    width: 40%;
+    background-color: white;
+    box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.33);
+    h1{
+      margin-top: .5em;
+      text-align: center;
+    }
+    input{
+      margin-bottom: 1em;
+      font-family: $font-serif;
+      width: 40%;
+      max-width: 98.5%;
+      border: .1em solid rgba(0,19,46,.15);
+      min-height: 16pt;
+    }
+    label{
+      display: block;
+      font-family: $font-sans;
+      font-size: 10pt;
+    }
+    .input-email{
+      width: 60%;
+    }
+    .input-url{
+      width: 98.5%;
+    }
+    button{
+      background: none;
+      border: none;
+      color: $primary;
+      cursor: pointer;
+    }
+    .center{
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .signup-form{
+      width: 80%;
+      h1{
+        font-size: 20pt;
+        margin-bottom: 1em;
+      }
+    }
+
+  }

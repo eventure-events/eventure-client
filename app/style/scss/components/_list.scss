@@ -1,46 +1,121 @@
-.list-component-header{
-  text-align: center;
-  // box-shadow: inset .1px .1px 2px .1px #00132e;
-  ol{
-    padding: 0;
-    box-shadow: 0px .1px 2px .1px rgba(0,19,46,.33);
-
-  li{
-    text-align: left;
-    background-color: white;
-    padding: 1em;
-    box-shadow: 0px .1px 2px .1px rgba(0,19,46,.15);
-    margin-bottom: .5em;
-
+.list-component-header {
+    text-align: center;
     h1{
-      margin-top: 0;
+      margin: 0;
+      margin-bottom: .33em;
     }
-  }
-}
-
-}
-icon {
-  float: right;
-}
-
-ul, ol {
-  padding-left: 0;
-}
-ul li {
-  padding-left: 0;
-  list-style-type: none;
-}
-.comment-wrapper {
-  padding: 5px;
-  font-size: 12pt;
-  border: 1px solid grey;
-  }
-.comments {
-
-  ul {
-    padding-left: 0;
-    li {
+    ul {
+        text-align: left;
+        padding: 0;
+        margin: 0 auto !important;
+        li {
+            background-color: white;
+            padding: 1em;
+            box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.15);
+            margin-bottom: 0.5em;
+        }
+    }
+    icon {
+      float: right;
+      color: $primary;
+      cursor: pointer;
+    }
+    ul {
+      padding-left: 0;
       list-style-type: none;
+      .comment-wrapper {
+        ul{
+          box-shadow: none;
+        }
+        font-size: 12pt;
+        background-color: $secondary-light;
+        padding: .5em;
+        li{
+          padding: .1em;
+          p{
+            font-size: 10pt;
+            margin: .1em;
+            margin-left: .25em;
+          }
+        }
+      }
     }
+
+.top-left, .top-right, .event-name{
+  display: inline;
+}
+
+.top-left{
+  margin-right: .75em;
+  margin-bottom: .5em;
+  float: left;
+}
+
+.details-line{
+  height: 1px;
+  width: 100%;
+  border-bottom: .25px solid rgba(0,19,46,.15);
+  display: block;
+  margin-top: .95em;
+  margin-bottom: .5em;
+}
+.top-right{
+  h5{
+    display: inline;
   }
+}
+
+.middle-left{
+  clear: both;
+  float: left;
+  margin-bottom: .5em;
+  span{
+    font-family: $font-sans;
+    font-weight: bold;
+  }
+}
+
+.middle-right{
+  clear: both;
+  a{
+    color: $primary;
+    cursor: pointer;
+  }
+  a:hover{
+    color: $primary-hover;
+  }
+  a:active{
+    color: $secondary;
+  }
+}
+
+.bottom{
+  button{
+    color: $primary;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  button:hover{
+    color: $primary-hover;
+  }
+  button:active{
+    color: $secondary;
+  }
+}
+
+.event-name{
+  top: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+}
+@media screen and (max-width: 600px) {
+
+ul{
+  width: 90%;
+}
 }

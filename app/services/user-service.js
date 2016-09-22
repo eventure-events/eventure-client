@@ -95,7 +95,7 @@ function userService($http, $log, $q, $window, dataService) {
   };
 
   service.getAllUsers = function() {
-    
+
   }
 
   return service;

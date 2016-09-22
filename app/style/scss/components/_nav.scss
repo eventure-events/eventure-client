@@ -14,7 +14,11 @@ nav{
   padding-top: 1em;
   padding-bottom: .5em;
   background-color: white;
-  z-index: 2;
+  z-index: 3;
+
+  ul {
+    padding:0;
+  }
 
   ul, ul li{
     display: inline;
@@ -23,8 +27,14 @@ nav{
   ul li{
     margin-left: 1em;
     font-size: 14pt;
-    color: $tertiary;
+    color: $primary;
     font-family: $font-sans;
+  }
+  ul li:hover{
+    color:$primary-hover;
+  }
+  ul li:active{
+    color: $secondary;
   }
 
   img{
@@ -40,7 +50,7 @@ nav{
     float: right;
     padding-top:.5em;
     padding-left: 1.5em;
-    padding-right: 1.5em;
+    margin-right: 1.5em;
     display: inline;
 
     form{
@@ -52,7 +62,13 @@ nav{
       border: none;
       font-size: 10pt;
       font-family: $font-sans;
-      color: $tertiary;
+      color: $primary;
+    }
+    button:hover{
+      color: $primary-hover;
+    }
+    button:active{
+      color: $secondary;
     }
     ul{
       img{
@@ -68,7 +84,7 @@ nav{
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 790px) {
   .screen-large{
     display: none;
   }
@@ -94,6 +110,9 @@ nav{
         height: 16pt;
         margin-top: -.15em !important;
       }
+    }
+    .sign-in-icon{
+      margin-right: 1em;
     }
   }
 }

@@ -1,62 +1,49 @@
-<div class="">
-  <div class="">
-    <div class="">
-      <div class="">
-        <div class=""> Your Events </div>
+<div class="sign-out-float">
+  <a class="screen-large sign-out-icon a" ng-click="$ctrl.userLogOut()">Sign Out </a>
+</div>
 
-        <ul class="">
-          <li class="" ng-repeat="event in $ctrl.yourEvents">
+<div class="profile-container">
+  <a class="sign-out-float screen-small sign-out-icon a" ng-click="$ctrl.userLogOut()"></a>
 
-            <div class="">
-              <div class="">
-                <button type="button" ng-click="showDiv = !showDiv" ng-show="!showDiv" class=""> </button>
-                <button type="button" ng-click="showDiv = !showDiv" ng-show="showDiv" class=""> </button>
-
-                <a ng-click="$ctrl.deleteEvent(event._id)" class="corner fa fa-times"> </a>
-                <h3> Event name: {{ event.name }} </h3>
-              </div>
-              <ul class="" ng-show="showDiv">
-                <li class=""> <img ng-src="{{ event.eventPic }}" class="eventPic"> </li>
-                <li class=""> Location: {{ event.location }} </li>
-                <li class=""> Description: {{ event.description }} </li>
-                <li class=""> Visibility: {{ event.visibility }} </li>
-                <li class=""> Event Start: {{ event.eventStart }}</li>
-                <li class=""> Event End: {{ event.eventEnd }} </li>
-              </ul>
-            </div>
-
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title"> User Information </h3>
-        </div>
-        <div class="panel-body">
-
-          <div>
-            <img class="profilePic" src="{{$ctrl.userInfo.user.profilePic}}">
-          </div>
-          <p>
-            Name: {{ $ctrl.userInfo.user.name }}
-          </p>
-          <hr>
-
-          <p>
-            Email: {{ $ctrl.userInfo.user.email }}
-          </p>
-          <hr>
-
-          <p>
-            Your friends: {{ $ctrl.userInfo.user.following }}
-          </p>
-        </div>
-      </div>
-
-    </div>
+  <h1>{{$ctrl.userInfo.user.username}}'s Profile</h1>
+  <div class="details-line">
   </div>
+  <img class="profilePic" src="{{$ctrl.userInfo.user.profilePic}}">
+  <p class="bio">
+    Name: {{ $ctrl.userInfo.user.name }}
+  </p>
+  <p>
+    Email: {{ $ctrl.userInfo.user.email }}
+  </p>
+  <ul ng-if="$ctrl.userInfo.user.following.length">Following:
+    <li ng-repeat="user in $ctrl.userInfo.user.following">{{user}}</li>
+  </ul>
+
+  <ul class="your-events" ng-if="$ctrl.yourEvents.length">
+    <h2>{{$ctrl.userInfo.user.name}}'s Events</h2>
+
+    <li ng-repeat="event in $ctrl.yourEvents">
+      <div class="details-line">
+      </div>
+
+      <div class="">
+        <h3> {{ event.name }}
+          <icon class="icon fa-caret-down" ng-show="!divShow" ng-click="divShow = !divShow"></icon>
+          <icon class="icon fa-caret-up" ng-show="divShow" ng-click="divShow = !divShow"></icon>
+          <a ng-click="$ctrl.deleteEvent(event._id)" class="corner fa fa-times"> </a>
+        </h3>
+      </div>
+      <ul ng-show="divShow">
+        <li> <img ng-src="{{ event.eventPic }}" class="eventPic"> </li>
+        <li> <span class="event-screen-large">Location: </span> {{ event.location }} </li>
+        <li ng-if="!event.eventEndDate"> Date: {{ event.eventStartDate }}</li>
+        <li ng-if="event.eventEndDate"> Date: {{ event.eventStartDate }} - {{event.eventEndDate}}</li>
+        <li ng-if="!event.eventEndTime"> Time: {{ event.eventStartTime }} </li>
+        <li ng-if="event.eventEndTime"> Time: {{ event.eventStartTime }} - {{event.eventEndTime}}</li>
+        <li> Event Privacy: {{ event.visibility }} </li>
+        <li> Description: {{ event.description }} </li>
+      </ul>
+
+    </li>
+  </ul>
 </div>

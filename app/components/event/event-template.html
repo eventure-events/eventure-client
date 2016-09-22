@@ -1,55 +1,57 @@
-<div class="">
-  <form class="" ng-submit="edit = true; $ctrl.createEvent($ctrl.event)">
+<div class="event-form">
+  <h1>Create a New Event</h1>
+  <form ng-submit="edit = true; $ctrl.createEvent($ctrl.event)" ng-model="$ctrl.event">
 
-    <div class="">
-      <div class="">
-        <div class="">
-          <label for="name">Name</label>
-          <input required class="" placeholder="Name" ng-model="$ctrl.event.name" type="text" name="name">
-          <br>
-          <label for="visibility">Privacy</label>
-          <select required class="" ng-model="$ctrl.event.visibility" name="visibility">
-            <option value="" disabled="disabled" selected="selected">Select Event Privacy</option>
-            <option value="private">private</option>
-            <option value="public">public</option>
-          </select>
-          <br>
-          <label for="location">Location</label>
-          <input required class="" placeholder="Location" id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
-          <br>
-          <label for="start-start">Picture</label>
-          <input class="" placeholder="Photo URL" ng-model="$ctrl.event.eventPic" type="text" name="name">
-        </div>
-      </div>
+    <label for="name">Event Name</label>
+    <input required ng-model="$ctrl.event.name" type="text" name="name">
+    <br/>
 
-      <div class="">
-        <div class="">
-          <label for="start-date">Start Date:</label>
-          <input required class="" placeholder="Date" value="date" type="date" name="start-date" ng-model="$ctrl.event.startDate">
-          <br />
-          <label for="start-time">Start Time:</label>
-          <input required class="" value="start-time" type="time" name="start-time" ng-model="$ctrl.event.startTime">
-          <br />
-          <label for="end-date">End Date:</label>
-          <input required class="" placeholder="Date" value="date" type="date" name="end-date" ng-model="$ctrl.event.endDate">
-          <br />
-          <label for="end-time">End Time:</label>
-          <input required class="" value="end-time" type="time" name="end-time" ng-model="$ctrl.event.endTime">
-          <br />
-        </div>
-      </div>
+    <label for="visibility">Privacy</label>
+    <select required ng-model="$ctrl.event.visibility" name="visibility">
+      <option value="public" selected="selected">public</option>
+      <option value="private">private</option>
+    </select>
+    <br/>
+
+    <label for="location">Location</label>
+    <input required id="autocomplete" ng-model="$ctrl.event.location" type="text" name="location" ng-click="$ctrl.initAutocomplete()">
+    <br/>
+
+    <label for="start-start">Url for Event Picture</label>
+    <input ng-model="$ctrl.event.eventPic" type="text" name="name">
+    <br/>
+
+    <label for="start-date">Start Date:</label>
+    <input required type="date" name="start-date" ng-model="$ctrl.event.startDate">
+
+    <label class="label-special" for="multi-day-radio">Multi-Day Event? </label>
+    <input type="radio" name="multi-day-radio" value="no" checked ng-click="radioMulti = false"> No
+    <input type="radio" name="multi-day-radio" value="yes" ng-click="radioMulti = true"> Yes
+
+    <br ng-show="radioMulti" />
+    <label ng-show="radioMulti" for="end-date">End Date:</label>
+    <input ng-show="radioMulti" type="date" name="end-date" ng-model="$ctrl.event.endDate">
+    <br />
+
+    <label for="start-time">Start Time:</label>
+    <input required type="time" name="start-time" ng-model="$ctrl.event.startTime">
+
+    <label class="label-special" for="end-time-radio">Set End Time? </label>
+    <input type="radio" name="end-time-radio" value="no" checked ng-click="radioEndTime = false"> No
+    <input type="radio" name="end-time-radio" value="yes" ng-click="radioEndTime = true"> Yes
+
+    <br ng-show="radioEndTime" />
+    <label ng-show="radioEndTime" for="end-time">End Time:</label>
+    <input ng-show="radioEndTime" type="time" name="end-time" ng-model="$ctrl.event.endTime">
+    <br />
+
+    <label for="start-start">Event Description</label>
+    <textarea required ng-model="$ctrl.event.description" rows="2" cols="100" name="description"></textarea>
+    <br/>
+    <div class="center">
+
+      <button class="form-complete-icon" type="submit" name="button"> Create Event </button>
     </div>
-
-    <div class="">
-      <div class="">
-        <div class="">
-          <label for="start-start">Description</label>
-          <textarea required class="" placeholder="Description" ng-model="$ctrl.event.description" rows="2" cols="100" name="description"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <button type="submit" name="button" class=""> Create </button>
 
   </form>
 </div>

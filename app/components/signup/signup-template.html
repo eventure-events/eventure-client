@@ -1,8 +1,18 @@
-<form class="" ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
-  <input required class="" type="text" placeholder=" Name" ng-model="$ctrl.user.name"></input>
-  <input required class="" type="text" placeholder=" Username" ng-model="$ctrl.user.username"></input>
-  <input required class="" type="email" placeholder=" Email" ng-model="$ctrl.user.email"></input>
-  <input required class="" type="password" placeholder=" Password" ng-model="$ctrl.user.password"></input>
-  <input class="" type="text" placeholder=" Url for Profile Picture" ng-model="$ctrl.user.profilePic"></input>
-  <button class="" type="submit"> Sign Up </button>
-</form>
+<div class="signup-form">
+  <h1>Create a New User</h1>
+  <form ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
+    <label for="name">Name</label>
+    <input required type="text" ng-model="$ctrl.user.name"></input>
+    <label for="username">Username</label>
+    <input required type="text" ng-model="$ctrl.user.username"></input>
+    <label for="password">Password</label>
+    <input required type="password" ng-model="$ctrl.user.password"></input>
+    <label for="email">Email</label>
+    <input class="input-email" required type="email" ng-model="$ctrl.user.email"></input>
+    <label for="url">Url for Profile Picture</label>
+    <input class="input-url" type="text" ng-model="$ctrl.user.profilePic"></input>
+    <div class="center">
+      <button class="form-complete-icon" type="submit"> Sign Up </button>
+    </div>
+  </form>
+</div>
