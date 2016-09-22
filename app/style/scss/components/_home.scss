@@ -1,6 +1,16 @@
 #map {
   box-shadow: 0 .5px 5px .05px rgba(0,19,46,.33);
 
+  a{
+    color: $primary;
+  }
+  a:hover{
+    color: $primary-hover;
+  }
+  a:active{
+    color: $secondary;
+  }
+
     position: absolute;
     height: 87%;
     width: 55%;
