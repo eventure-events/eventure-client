@@ -11,8 +11,8 @@
   input, select, textarea{
     margin-bottom: 1em;
     font-family: $font-serif;
-    width: 98.5%;
-    max-width: 98.5%;
+    width: 95%;
+    max-width: 95%;
   }
   label{
     display: block;
@@ -47,6 +47,7 @@
 
 @media screen and (max-width: 600px) {
   .event-form{
+    margin-bottom: 2em;
     width: 80%;
     h1{
       font-size: 20pt;
