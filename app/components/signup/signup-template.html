@@ -1,21 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <form class="form" ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
-        <div class="form-group">
-          <label for="name"> Name: </label>
-          <input required class="form-control" type="text" placeholder="name" ng-model="$ctrl.user.name"></input>
-          <label for="username"> Username: </label>
-          <input required class="form-control" type="text" placeholder="username" ng-model="$ctrl.user.username"></input>
-          <label for="email"> Email: </label>
-          <input required class="form-control" type="email" placeholder="email" ng-model="$ctrl.user.email"></input>
-          <label for="password"> Password: </label>
-          <input required class="form-control" type="password" placeholder="password" ng-model="$ctrl.user.password"></input>
-          <label for="profilePic"> Profile Picture: </label>
-          <input class="form-control" type="text" placeholder="url" ng-model="$ctrl.user.profilePic"></input>
-        </div>
-        <button class="btn btn-primary" type="submit"> Sign Up </button>
-      </form>
+<div class="signup-form">
+  <h1>Create a New User</h1>
+  <form ng-submit="$ctrl.userSignUp($ctrl.user)" ng-model="$ctrl.user">
+    <label for="name">Name</label>
+    <input required type="text" ng-model="$ctrl.user.name"></input>
+    <label for="username">Username</label>
+    <input required type="text" ng-model="$ctrl.user.username"></input>
+    <label for="password">Password</label>
+    <input required type="password" ng-model="$ctrl.user.password"></input>
+    <label for="email">Email</label>
+    <input class="input-email" required type="email" ng-model="$ctrl.user.email"></input>
+    <label for="url">Url for Profile Picture</label>
+    <input class="input-url" type="text" ng-model="$ctrl.user.profilePic"></input>
+    <div class="center">
+      <button class="form-complete-icon" type="submit"> Sign Up </button>
     </div>
-  </div>
+  </form>
 </div>

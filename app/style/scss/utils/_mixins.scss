@@ -1,6 +1,4 @@
-@mixin left {
-    float: left;
-}
-@mixin right {
-    float: right;
+@mixin top-indent{
+  position: relative;
+  top: 4.75em;
 }

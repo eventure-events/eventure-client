@@ -4,28 +4,35 @@ module.exports = exports = (app) => {
   app.controller('EventController', ['$log', '$window', 'dataService', 'eventService', 'userService', EventController]);
 };
 
+const moment = require('moment');
+moment().format('ll');
+
 function EventController($log, $window, dataService, eventService, userService) {
   this.events = dataService.events;
   this.event = {};
   console.log(this.redirectTo);
 
+
+
   this.createEvent = function(eventInfo) {
 
-    const eventStart = new Date(eventInfo.startDate);
-    const eventEnd = new Date(eventInfo.endDate);
+    eventInfo.eventStartDate = moment(new Date(eventInfo.startDate)).format('ll');
+    const startTime = new Date(eventInfo.startTime);
+    startTime.setHours(eventInfo.startTime.getHours());
+    startTime.setMinutes(eventInfo.startTime.getMinutes());
+    eventInfo.eventStartTime = moment(startTime).format('LT');
 
-    eventStart.setHours(eventInfo.startTime.getHours());
-    eventStart.setMinutes(eventInfo.startTime.getMinutes());
+    if(eventInfo.endDate){
+      eventInfo.eventEndDate = moment(new Date(eventInfo.endDate)).format('ll');
+    }
 
-    eventEnd.setHours(eventInfo.endTime.getHours());
-    eventEnd.setMinutes(eventInfo.endTime.getMinutes());
+    if(eventInfo.endTime){
+      const endTime = new Date(eventInfo.endTime);
+      endTime.setHours(eventInfo.endTime.getHours());
+      endTime.setMinutes(eventInfo.endTime.getMinutes());
+      eventInfo.eventEndTime = moment(endTime).format('LT');
+    }
 
-
-    console.log('event', eventStart);
-    console.log('event', eventEnd);
-
-    eventInfo.eventStart = eventStart;
-    eventInfo.eventEnd = eventEnd;
     $log.debug('Creating event', eventInfo);
     $log.debug('EventController.createEvent eventInfo.location: ', eventInfo.location);
     this.token = userService.getToken();
@@ -36,13 +43,13 @@ function EventController($log, $window, dataService, eventService, userService) 
     };
 
     this.geocode(eventInfo)
-    .then(eventInfo => {
-      eventService.createEvent(eventInfo, this.config)
-        .then((ev) => {
-          this.events.push(ev);
-          if(this.redirectTo !== '') $window.location.href = this.redirectTo;
-        });
-    });
+      .then(eventInfo => {
+        eventService.createEvent(eventInfo, this.config)
+          .then((ev) => {
+            this.events.push(ev);
+            if (this.redirectTo !== '') $window.location.href = this.redirectTo;
+          });
+      });
   };
 
 
@@ -75,10 +82,10 @@ function EventController($log, $window, dataService, eventService, userService) 
   this.initAutocomplete = function() {
     let input = document.getElementById('autocomplete');
     let autocomplete = new google.maps.places.Autocomplete(
-    /** @type {!HTMLInputElement} */
-    (input), {
-      types: ['geocode'],
-    });
+      /** @type {!HTMLInputElement} */
+      (input), {
+        types: ['geocode'],
+      });
     autocomplete.addListener('place_changed', () => {
       let place = autocomplete.getPlace();
       this.event.location = place.formatted_address;

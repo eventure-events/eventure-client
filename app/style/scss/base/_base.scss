@@ -1,1 +1,30 @@
-.angular-google-map-container {height: 400px;}
+body{
+  margin: 0 auto;
+  font-family: $font-serif;
+  background-color: $light;
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: $font-sans;
+  }
+
+
+  a, button, icon{
+    color: $primary;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover, button:hover, icon:hover{
+    color: $primary-hover;
+  }
+  a:active, button:active, icon:active{
+    color: $secondary;
+  }
+  a:visited, button:visited, icon:visited{
+    color: currentColor;
+  }
+
+}
+
+.about-container, .ev-event-profile, .ev-event-component,  #map, .list-component, .ev-profile-component, .ev-event-profile-component, .ev-signin-component, .ev-signup-component{
+@include top-indent;
+}

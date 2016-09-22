@@ -1,0 +1,56 @@
+.signin-form{
+    padding: 1em;
+    margin: 0 auto;
+    width: 40%;
+    background-color: white;
+    box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.33);
+    h1{
+      margin-top: .5em;
+      text-align: center;
+      font-size: 22pt;
+    }
+    input{
+      margin-bottom: 1em;
+      font-family: $font-serif;
+      width: 40%;
+      max-width: 98.5%;
+      border: .1em solid rgba(0,19,46,.15);
+      min-height: 16pt;
+    }
+    button{
+      background: none;
+      border: none;
+      color: $primary;
+      cursor: pointer;
+    }
+    p{
+      font-size: 10pt;
+    }
+    .a{
+      color: $primary;
+      cursor: pointer;
+    }
+    a:hover{
+      color: $primary-hover;
+    }
+    a:active{
+      color: $secondary;
+    }
+    .center{
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .signin-form{
+      width: 80%;
+      h1{
+        font-size: 20pt;
+        margin-bottom: 1em;
+      }
+      .a{
+        display: block;
+      }
+    }
+
+  }

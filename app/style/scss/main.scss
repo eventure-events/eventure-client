@@ -1,19 +1,24 @@
 @import '../vendor/normalize_scss/_normalize';
 @include normalize();
-@import "../vendor/bootstrap/stylesheets/_bootstrap";
+// @import "../vendor/bootstrap/stylesheets/_bootstrap";
 @import "../vendor/font-awesome/scss/font-awesome";
 
 
 @import "./components/_header.scss";
 
 @import "./utils/_mixins.scss";
+@import "./utils/_icons.scss";
 @import "./theme/_theme.scss";
 
 
 @import "./base/_base.scss";
 
 @import "./components/_nav.scss";
+@import "./components/_about.scss";
 @import "./components/_home.scss";
 @import "./components/_list.scss";
-@import "./components/_event-form.scss";
 @import "./components/_profile.scss";
+@import "./components/_event-form.scss";
+@import "./components/_signin.scss";
+@import "./components/_signup.scss";
+@import "./components/_event-profile.scss";

@@ -1,3 +1,118 @@
-.navbar img {
+.screen-large{
+  display: inline-block;
+}
+.screen-small{
+  display: none;
+}
+
+nav{
+  box-shadow: 0 .5px 5px .05px rgba(0,19,46,.33);
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  margin-right: 1em;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  background-color: white;
+  z-index: 3;
+
+  ul {
+    padding:0;
+  }
+
+  ul, ul li{
+    display: inline;
+  }
+
+  ul li{
+    margin-left: 1em;
+    font-size: 14pt;
+    color: $primary;
+    font-family: $font-sans;
+  }
+  ul li:hover{
+    color:$primary-hover;
+  }
+  ul li:active{
+    color: $secondary;
+  }
+
+  img{
     height: 20pt;
+  }
+
+  .logo{
+    margin-right: 2em;
+  }
+
+  .user{
+    height: 20pt;
+    float: right;
+    padding-top:.5em;
+    padding-left: 1.5em;
+    margin-right: 1.5em;
+    display: inline;
+
+    form{
+      font-size: 10pt;
+    }
+
+    button{
+      background: none;
+      border: none;
+      font-size: 10pt;
+      font-family: $font-sans;
+      color: $primary;
+    }
+    button:hover{
+      color: $primary-hover;
+    }
+    button:active{
+      color: $secondary;
+    }
+    ul{
+      img{
+        vertical-align: middle;
+        padding: 0;
+        margin-top: -.1em;
+      }
+      a{
+        font-size: 10pt;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .screen-large{
+    display: none;
+  }
+  .screen-small{
+    display: inline-block;
+  }
+
+
+  nav{
+    .logo{
+      margin-left: .5em;
+    }
+    ul li{
+      display: inline;
+      margin-left: .5em;
+    }
+    .user{
+      padding-top: .25em;
+      margin-right: .25em;
+      padding-left: 0;
+      padding-right: 0;
+      img{
+        height: 16pt;
+        margin-top: -.15em !important;
+      }
+    }
+    .sign-in-icon{
+      margin-right: 1em;
+    }
+  }
 }

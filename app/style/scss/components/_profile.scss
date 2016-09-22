@@ -1,17 +1,97 @@
-.corner{
-  @include right;
+.sign-out-float {
+    float: right;
+    position: relative;
+    right: 2em;
+    font-size: 10pt;
+    z-index: 2;
 }
+.profile-container {
+    padding: 1em;
+    margin: 0 auto 1em;
+    width: 60%;
+    background-color: white;
+    box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.33);
+    overflow: auto;
+    h1, h2{
+        margin-top: 0.5em;
+        text-align: center;
+    }
+    img {
+        float: left;
+        margin-right: 1em;
+        margin-top: .5em;
+        max-width: 200px;
+        display: block;
+    }
 
-.profilePic {
-  max-width: 200px;
+    .bio{
+      margin-top: 5em;
+    }
+    icon {
+        color: $primary;
+        margin-left: 0.5em;
+    }
+    li,
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .details-line{
+      height: 1px;
+      width: 100%;
+      border-bottom: .25px solid rgba(0,19,46,.15);
+      display: block;
+      margin-top: .95em;
+      margin-bottom: .5em;
+    }
+    .your-events {
+        clear: both;
+        position: relative;
+        top: 1em;
+        img {
+            width: 500px;
+            max-width: 100%;
+            display: block;
+            margin-bottom: 1em;
+        }
+        li,
+        ul {
+            clear: both;
+        }
+        li{
+          margin: .25em;
+        }
+    }
 }
-
-.eventPic {
-  max-width: 200px;
+.corner {
+    float: right;
+    margin-top: 0.15em;
+    margin-left: 0;
+    color: $orange;
 }
-
-@media (min-width: 768px) {
-  .eventPic {
-    max-width: 400px;
+.corner:hover{
+  color: $red;
+}
+.corner:active{
+  color: $dark;
+}
+@media (max-width: 600px) {
+  .sign-out-float{
+    z-index: 2;
+    margin-top: .75em;
+    right: .5em;
   }
+  a{
+    color: $primary;
+    cursor: pointer;
+  }
+  .profile-container{
+    width: 80%;
+    .bio{
+      clear: both;
+      position: relative;
+      top: 1em;
+    }
+  }
+
 }

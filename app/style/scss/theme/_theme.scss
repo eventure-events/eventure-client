@@ -1,10 +1,14 @@
-$app-primary: #465E73;
-$app-secondary: #546d83;
-$app-tertiary: #647d93;
-$app-disabled: #777;
-$app-focus: #7a7aff;
-$app-active: #fa77fa;
-$app-outline: #2e0c00;
+$primary: rgba(58,125,209,1);
+$primary-hover: rgba(5,57,123,1);
+$primary-active: rgba(0,19,46,1);
+$secondary: rgba(143,174,86,1);
+$secondary-light: rgba(251,252,247,1);
+$light: rgba(245,250,255,1);
+$orange: rgba(252,190,44,1);
+$red: rgba(247,92,84,1);
+$aqua: rgba(50,160,176,1);
 
-$app-font-sans: 'Raleway', sans-serif;
-$app-font-serif: 'Lora', serif;
+$dark: rgba(0,19,46,1);
+
+$font-sans: 'Raleway', sans-serif;
+$font-serif: 'Quattrocento', serif;

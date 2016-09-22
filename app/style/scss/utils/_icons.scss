@@ -1,0 +1,48 @@
+@mixin icon-details{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.icon::before {
+  @include icon-details;
+  margin-right: .3em;
+}
+
+.sign-in-icon::after{
+  content: '';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   margin: 0 auto;
+   margin-left: .2em;
+   vertical-align: middle;
+   text-decoration:none;
+}
+
+.sign-out-icon::after{
+  content: '';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   margin: 0 auto;
+   margin-left: .2em;
+   vertical-align: middle;
+   text-decoration:none;
+}
+
+.form-complete-icon::after{
+  content: '';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 10pt;
+   margin: 0 auto;
+   margin-left: .2em;
+   vertical-align:inherit;
+   text-decoration:none;
+}
