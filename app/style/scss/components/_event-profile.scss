@@ -5,7 +5,7 @@
 .event-profile-container {
     padding: 1em;
     margin: 0 auto 1em;
-    width: 70%;
+    width: 40%;
     min-height: 19.25em;
     background-color: white;
     box-shadow: 0 0.1px 2px 0.1px rgba(0,19,46,.33);
@@ -31,7 +31,7 @@
         margin: 0.25em;
     }
     .center {
-      width: 50%;
+      width: 80%;
       margin: 0 auto;
     }
     .details-line {
@@ -46,6 +46,9 @@
 @media (max-width: 600px) {
   .event-screen-small{
     display: none;
+  }
+  .event-profile-container{
+    width: 80%;
   }
 
 }
