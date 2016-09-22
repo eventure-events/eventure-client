@@ -11,6 +11,7 @@ body{
   a, button, icon{
     color: $primary;
     text-decoration: none;
+    cursor: pointer;
   }
   a:hover, button:hover, icon:hover{
     color: $primary-hover;
