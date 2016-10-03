@@ -10,6 +10,8 @@ function EventController($log, $window, dataService, eventService, userService) 
   console.log(this.redirectTo);
 
   this.createEvent = function(eventInfo) {
+    //with this much code it might be worth splitting this into an Event service that will do all these conversions 
+    //on creation
 
     const eventStart = new Date(eventInfo.startDate);
     const eventEnd = new Date(eventInfo.endDate);
@@ -67,6 +69,7 @@ function EventController($log, $window, dataService, eventService, userService) 
   };
 
 
+  //more commented out code
   // this.initAutocomplete = function() {
   //   new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
   //   // autocomplete.addListener('click', );
@@ -85,6 +88,7 @@ function EventController($log, $window, dataService, eventService, userService) 
     });
   };
 
+  //get rid of all of this
   // do not do this if we have a data service
   // will most likely remove
   // this.allEvents = function() {

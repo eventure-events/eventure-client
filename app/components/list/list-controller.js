@@ -31,6 +31,8 @@ function ListController($rootScope, eventService, dataService, userService) {
     });
   };
 
+  //hmmm, this is dangerous. it can lead to some really hard to find bugs down the line
+  //I would look at doing this a different way
   $rootScope.$on('viewportEvents', () => {
     if (this.events) {
       this.events = dataService.viewportEvents;
