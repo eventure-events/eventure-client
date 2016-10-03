@@ -10,6 +10,6 @@ function EventProfileController($log, dataService, eventService, $routeParams) {
     if(thing._id === $routeParams.id) whatEvent.push(thing);
   });
   this.currentEvent = whatEvent[0];
-
+//get rid of these two lines of whitespace
 
 }

@@ -11,7 +11,7 @@ function mapService($rootScope, dataService) {
   service.labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   service.labelIndex = 0;
   dataService.viewportEvents = [];
-
+//get rid of this extra whitespace
 
 
   service.createMap = function() {
